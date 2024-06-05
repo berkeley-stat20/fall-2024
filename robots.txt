@@ -1,1 +1,1 @@
-Sitemap: https://www.stat20.org/sitemap.xml
+Sitemap: https://berkeley-stat20.github.io/fall-2024/sitemap.xml

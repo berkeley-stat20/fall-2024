@@ -2889,14 +2889,14 @@
     "href": "1-questions-and-data/01-understanding-the-world/slides.html#section-24",
     "title": "Understanding the World with Data",
     "section": "",
-    "text": "All of the materials and links for the course can be found at:\nwww.stat20.org"
+    "text": "All of the materials and links for the course can be found at:\nhttps://berkeley-stat20.github.io/fall-2024/"
   },
   {
     "objectID": "1-questions-and-data/01-understanding-the-world/slides.html#ed-discussion-forum",
     "href": "1-questions-and-data/01-understanding-the-world/slides.html#ed-discussion-forum",
     "title": "Understanding the World with Data",
     "section": "Ed Discussion Forum",
-    "text": "Ed Discussion Forum\n\n\n\n\n\nForum to ask questions, answer questions, and course announcements\nPlease answer each other’s questions!\n\n\nPractice by asking/answering a question on the “Syllabus Discussion” thread on Ed via the link at the top right of https://www.stat20.org."
+    "text": "Ed Discussion Forum\n\n\n\n\n\nForum to ask questions, answer questions, and course announcements\nPlease answer each other’s questions!\n\n\nPractice by asking/answering a question on the “Syllabus Discussion” thread on Ed via the link at the top right of &lt;https://berkeley-stat20.github.io/fall-2024/&gt;."
   },
   {
     "objectID": "1-questions-and-data/01-understanding-the-world/slides.html#components-of-rstudio",
@@ -4950,7 +4950,7 @@
     "href": "4-generalization/06-wrong-by-design/slides.html#section-5",
     "title": "Wrong By Design",
     "section": "",
-    "text": "null &lt;- ppk |&gt;\n  specify(response = support_before,\n          success = \"TRUE\") |&gt;\n  hypothesize(null = \"point\", p = .5) |&gt;\n  generate(reps = 500, type = \"draw\") |&gt;\n  calculate(stat = \"prop\")\nnull\n\nResponse: support_before (factor)\nNull Hypothesis: point\n# A tibble: 500 × 2\n   replicate  stat\n   &lt;fct&gt;     &lt;dbl&gt;\n 1 1         0.507\n 2 2         0.516\n 3 3         0.487\n 4 4         0.501\n 5 5         0.502\n 6 6         0.498\n 7 7         0.509\n 8 8         0.490\n 9 9         0.517\n10 10        0.499\n# ℹ 490 more rows"
+    "text": "null &lt;- ppk |&gt;\n  specify(response = support_before,\n          success = \"TRUE\") |&gt;\n  hypothesize(null = \"point\", p = .5) |&gt;\n  generate(reps = 500, type = \"draw\") |&gt;\n  calculate(stat = \"prop\")\nnull\n\nResponse: support_before (factor)\nNull Hypothesis: point\n# A tibble: 500 × 2\n   replicate  stat\n   &lt;fct&gt;     &lt;dbl&gt;\n 1 1         0.522\n 2 2         0.503\n 3 3         0.478\n 4 4         0.498\n 5 5         0.512\n 6 6         0.510\n 7 7         0.524\n 8 8         0.5  \n 9 9         0.478\n10 10        0.5  \n# ℹ 490 more rows"
   },
   {
     "objectID": "4-generalization/06-wrong-by-design/slides.html#section-6",

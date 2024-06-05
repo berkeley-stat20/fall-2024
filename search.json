@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "5-causation/02-experiments/slides.html#agenda",
+    "href": "5-causation/02-experiments/slides.html#agenda",
+    "title": "Experiments",
+    "section": "",
+    "text": "Announcements\nConcept Questions\nLab 7.2"
+  },
+  {
+    "objectID": "5-causation/02-experiments/slides.html#announcements",
+    "href": "5-causation/02-experiments/slides.html#announcements",
+    "title": "Experiments",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 7.1 due Friday 4/19 at 11:59 PM. Aim to finish during class today.\nLab 7.2 due Tuesday 4/23 at 9:00 AM.\nExperiment groups must be of size 3 or 4.\n2 problem sets will be assigned next week (both due Tuesday 4/30)."
+  },
+  {
+    "objectID": "5-causation/02-experiments/slides.html#section",
+    "href": "5-causation/02-experiments/slides.html#section",
+    "title": "Experiments",
+    "section": "",
+    "text": "We run an experiment to see if informative phone calls encourage people to vote. We obtain phone numbers for 1000 registered voters and randomly assign half of them to receive calls from volunteers. The volunteers tell them the location of their polling place and the date of the election. Our outcome is whether or not the subjects vote in the next election.\n\nWhich of the following are possible covariates for our study?\n\nThe party affiliation of the voter (Republican or Democrat).\nWhether the next election is a presidential election or not.\nWhether the voter voted in the last election.\nWhether the voter votes primarily for Republicans or Democrats in the next election.\nWhether the treated voters hung up on the volunteer.\n\n\n\nThe point of this question is to get the students thinking about whether variables are measured before or after treatment assignment.A and C are correct answers, D and E are not (although E is measured before the primary outcome, it is still after treatment). B is technically a covariate but probably not a useful one; unless our experiments spans multiple election cycles, it will have the same value for all subjects.\n\n\n\n\n\n−&plus;\n\n01:00"
+  },
+  {
+    "objectID": "5-causation/02-experiments/slides.html#section-1",
+    "href": "5-causation/02-experiments/slides.html#section-1",
+    "title": "Experiments",
+    "section": "",
+    "text": "Which of the following claims about covariate balance are true?\n\nRandomized treatment assignment tends to produce covariate balance.\nA standardized mean difference that is not equal to zero likely means that randomization was not conducted correctly.\nThe Love plot shows the difference in means or proportions for each covariate across treatment groups.\nIn a hypothesis test for balance, the null hypothesis is that the treatment assignment and the covariate are independent.\n\n\n\n\n\n\n−&plus;\n\n01:00"
+  },
+  {
+    "objectID": "5-causation/02-experiments/slides.html#the-essential-question-of-our-time",
+    "href": "5-causation/02-experiments/slides.html#the-essential-question-of-our-time",
+    "title": "Experiments",
+    "section": "The Essential Question of Our Time",
+    "text": "The Essential Question of Our Time\n\n\n\n\n\n\n\n\n\nWhich is the best flavor?\n\n\nThis purely for fun. Some people have strong opinions about this."
+  },
+  {
+    "objectID": "5-causation/02-experiments/slides.html#section-2",
+    "href": "5-causation/02-experiments/slides.html#section-2",
+    "title": "Experiments",
+    "section": "",
+    "text": "Could your taster distinguish between flavors?\n\nYes, and it was statistically significant (p &lt; .05).\n\nYes, but it was not statistically significant (p &gt; .05).\n\nYes, but we haven’t conducted the test yet.\nNo.\n\nNot sure, we haven’t computed the difference in proportions yet.\nWe tested a different claim.\n\n\n\n\nThe goal of this question is to allow all groups to concisely share their results with the class. It also opens up the conversation about how there were many different ways to carry out this experiment. Two groups might have come to different conclusions because their tasters really had different abilities, or because their claims and experiments were slightly different, or just due to random chance.\nYou may want to project 1 or 2 protocols and ask the groups to talk through how they uses the principles of experimental design."
+  },
+  {
+    "objectID": "5-causation/02-experiments/slides.html",
+    "href": "5-causation/02-experiments/slides.html",
+    "title": "Experiments",
+    "section": "",
+    "text": "Announcements\nConcept Questions\nLab 7.2"
+  }
+]

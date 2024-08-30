@@ -462,7 +462,7 @@
     "href": "1-questions-and-data/labs/unvotes/lab.html#the-context-of-the-data",
     "title": "Lab 1: UN Votes",
     "section": "The Context of the Data",
-    "text": "The Context of the Data\nSince its founding in 1946, the United Nation has regularly put forth resolutions that aim to express the will of its members. Impactful historical resolutions have involved the Declaration of Human Rights in 1948, a prohibition on the use of nuclear and thermonuclear weapons in 1968, and the establishment of a no-fly zone in Libya in 2011. After each resolution is proposed, it is voted on in a roll-call vote of the member nations.\nThe data set at hand contains the voting records of every nation in the UN from 1946 - 2019 on three different issues: Colonialism, Human Rights, and Nuclean Weapons."
+    "text": "The Context of the Data\nSince its founding in 1946, the United Nation has regularly put forth resolutions that aim to express the will of its members. Impactful historical resolutions have involved the Declaration of Human Rights in 1948, a prohibition on the use of nuclear and thermonuclear weapons in 1968, and the establishment of a no-fly zone in Libya in 2011. After each resolution is proposed, it is voted on in a roll-call vote of the member nations.\nThe data set at hand contains the voting records of every nation in the UN from 1946 - 2019 on three different issues: Colonialism, Human Rights, and Nuclear Weapons."
   },
   {
     "objectID": "1-questions-and-data/labs/unvotes/lab.html#computing-on-the-data",

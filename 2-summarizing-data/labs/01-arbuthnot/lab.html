@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.6">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Lab 1: Arbuthnot – Stat 20</title>
 <style>
 code{white-space: pre-wrap;}
@@ -18,6 +21,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
+
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -35,7 +39,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -60,13 +65,18 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WP7F4QKDC8"></script><script type="text/javascript">
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WP7F4QKDC8"></script>
+
+<script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </script>
+
+
 <meta property="og:title" content="Lab 1: Arbuthnot – Stat 20">
 <meta property="og:description" content="Introduction to Probability and Statistics at UC Berkeley">
 <meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/01-arbuthnot/images/christenings-sm.png">
@@ -80,13 +90,17 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="542">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="nav-fixed">
+
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-sm " data-bs-theme="dark"><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../assets/stat20-hex-small.png" alt="Stat 20 logo" class="navbar-logo"></a>
+    <img src="../../../assets/stat20-hex-small.png" alt="Stat 20 logo" class="navbar-logo">
+    </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -94,7 +108,7 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
@@ -110,8 +124,12 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
     <a class="nav-link" href="../../../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
 </ul>
-</div> <!-- /navcollapse -->
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://edstem.org/" title="" class="quarto-navigation-tool px-1" aria-label="Ed Discussion Forum"><i class="bi bi-chat-fill"></i></a>
     <a href="https://www.gradescope.com/" title="" class="quarto-navigation-tool px-1" aria-label="Gradescope"><i class="bi bi-bar-chart-fill"></i></a>
@@ -123,19 +141,18 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li><a href="#part-1-understanding-the-context-of-the-data" id="toc-part-1-understanding-the-context-of-the-data" class="nav-link active" data-scroll-target="#part-1-understanding-the-context-of-the-data">Part 1: Understanding the Context of the Data</a></li>
-  <li><a href="#part-ii-computing-on-the-data" id="toc-part-ii-computing-on-the-data" class="nav-link" data-scroll-target="#part-ii-computing-on-the-data">Part II: Computing on the Data</a></li>
-  </ul></nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Lab 1: Arbuthnot</h1>
 </div>
 
@@ -150,16 +167,27 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
   
 
 
-</header><!-- The bit before that is commented out adds publish date to document metadata and button links at the top of the doc. This workflow can be revisited but currently doesn't work because listings aren't updated with these dates, only the renderd docs. --><p><a href="../../../2-summarizing-data/labs/01-arbuthnot/slides.html"><span class="btn btn-primary">Slides</span></a></p>
-<section id="part-1-understanding-the-context-of-the-data" class="level2"><h2 class="anchored" data-anchor-id="part-1-understanding-the-context-of-the-data">Part 1: Understanding the Context of the Data</h2>
+</header>
+
+
+<!-- The bit before that is commented out adds publish date to document metadata and button links at the top of the doc. This workflow can be revisited but currently doesn't work because listings aren't updated with these dates, only the renderd docs. -->
+<p><a href="../../../2-summarizing-data/labs/01-arbuthnot/slides.html"><span class="btn btn-primary">Slides</span></a></p>
+<section id="part-1-understanding-the-context-of-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-understanding-the-context-of-the-data">Part 1: Understanding the Context of the Data</h2>
 <p>The first part of each of our labs will be a worksheet where you’ll think more about the context of the data, help formulate your questions, and set expectations for what the data will look like. Please record your answers on the worksheet below and upload it to Gradescope as Lab 1.1.</p>
 <ul>
 <li><a href="../../../2-summarizing-data/labs/01-arbuthnot/lab-context.pdf">Part 1: Understanding the Context of the Data</a></li>
-</ul></section><section id="part-ii-computing-on-the-data" class="level2"><h2 class="anchored" data-anchor-id="part-ii-computing-on-the-data">Part II: Computing on the Data</h2>
-<section id="quarto-lab-format" class="level4"><h4 class="anchored" data-anchor-id="quarto-lab-format">Quarto Lab Format</h4>
+</ul>
+</section>
+<section id="part-ii-computing-on-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-computing-on-the-data">Part II: Computing on the Data</h2>
+<section id="quarto-lab-format" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-lab-format">Quarto Lab Format</h4>
 <p>The second part of each lab is your chance to dive into a real data set to answer the questions that you posed in Part 1. To ensure your analysis is reproducible, please record your answers to these questions (both the text and code) in a .qmd file. Render your work to an HTML file regularly as a check that your code is running. When you are pleased with the result, print that HTML to a pdf (File &gt; Print &gt; Save as pdf in your browser), then upload to Gradescope as Lab 1.2. See Ed for more info about lab submission.</p>
-</section><section id="lab-questions" class="level4"><h4 class="anchored" data-anchor-id="lab-questions">Lab Questions</h4>
-<p>The first several questions pertain to the <code>arbuthnot</code> data frame found in <code><a href="https://rdrr.io/r/base/library.html">library(stat20data)</a></code>.</p>
+</section>
+<section id="lab-questions" class="level4">
+<h4 class="anchored" data-anchor-id="lab-questions">Lab Questions</h4>
+<p>The first several questions pertain to the <code>arbuthnot</code> data frame found in <code>library(stat20data)</code>.</p>
 <ol type="1">
 <li><p>What is the time frame covered by Arbuthnot’s data?</p></li>
 <li><p>Which year saw the greatest number of children christened?</p></li>
@@ -168,7 +196,7 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <li><p>What is the trend over time in the proportion of girls christened? Please answer with a plot and written interpretation.</p></li>
 </ol>
 <hr>
-<p>The remaining questions pertain to the <code>present</code> data frame found in <code><a href="https://rdrr.io/r/base/library.html">library(stat20data)</a></code>.</p>
+<p>The remaining questions pertain to the <code>present</code> data frame found in <code>library(stat20data)</code>.</p>
 <ol start="6" type="1">
 <li><p>What is the time frame covered by the present-day data?</p></li>
 <li><p>In terms of general magnitude (size), how do the counts in Arbuthnot’s data compare to the counts in the present-day data?</p></li>
@@ -177,7 +205,11 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </ol>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -598,7 +630,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -607,15 +640,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item">
+    <li class="nav-item">
     <a class="nav-link" href="../../../license.html">
 <p>License</p>
 </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

@@ -1,12 +1,12 @@
 [
   {
-    "listing": "/index.html",
-    "items": []
-  },
-  {
     "listing": "/assignments.html",
     "items": [
       "/1-questions-and-data/labs/unvotes/lab.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": []
   }
 ]

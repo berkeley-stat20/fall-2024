@@ -99,20 +99,20 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ps-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-ws-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-project","listing-course-name","listing-semester","listing-site-url","listing-website","listing-format","listing-execute","listing-language","listing-drafts","listing-title","listing-subtitle","listing-path","listing-outputHref","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ps-listing'] = new List('listing-ps-listing', options);
+    window['quarto-listings']['listing-ws-listing'] = new List('listing-ws-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -263,7 +263,7 @@ window.Quarto = {
 <p>Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/base-r.pdf">base R</a>, <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">data visualization (ggplot2)</a>, and <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">data wrangling (dplyr)</a>.</p>
 <div id="listing-lab-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1725374572382" data-listing-reading-time-sort="2" data-listing-word-count-sort="254">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1725376886591" data-listing-reading-time-sort="2" data-listing-word-count-sort="254">
 <a href="./1-questions-and-data/labs/unvotes/lab.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -286,8 +286,11 @@ No matching items
 <section id="worksheets" class="level2">
 <h2 class="anchored" data-anchor-id="worksheets">Worksheets</h2>
 <p>Worksheets are pen-and-paper practice problems that we work on in class. The goal of the worksheets is simply practice: they help you drill the techniques needed to complete the labs.</p>
-<div id="listing-ps-listing" class="quarto-listing quarto-listing-container-custom">
+<div id="listing-ws-listing" class="quarto-listing quarto-listing-container-custom">
 <ul>
+<li>
+<a href="./1-questions-and-data/02-taxonomy-of-data/ws.pdf">PS 1: Taxonomy of Data</a>
+</li>
 </ul>
 <div class="listing-no-matching d-none">
 No matching items

@@ -165,6 +165,97 @@
     ]
   },
   {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#agenda",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#agenda",
+    "title": "Taxonomy of Data",
+    "section": "Agenda",
+    "text": "Agenda\n\nAnnouncements\nConcept Questions: Conceptual\nProblem Set 1: Taxonomy of Data\nBreak\nConcept Questions: Coding\nLab 0 work time"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-question-1---quick-refresher",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-question-1---quick-refresher",
+    "title": "Taxonomy of Data",
+    "section": "Concept Question 1 - Quick Refresher",
+    "text": "Concept Question 1 - Quick Refresher\n\nHead to PollEverywhere for a quick set of questions regarding Taxonomy of Data!\n\n\n\n\n\n−+\n01:00"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#images-as-data",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#images-as-data",
+    "title": "Taxonomy of Data",
+    "section": "Images as data",
+    "text": "Images as data\n\n\n\nImages are composed of pixels (this image is 1520 by 1012)\nThe color in each pixel is in RGB\n\nEach band takes a value from 0-255\nThis image is data with 1520 x 1012 x 3 values."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#grayscale",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#grayscale",
+    "title": "Taxonomy of Data",
+    "section": "Grayscale",
+    "text": "Grayscale\n\n\n\nGrayscale images have only one band\n0 is black, 255 is white\nThis image is data with 1520 x 1012 x 1 values."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#grayscale-1",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#grayscale-1",
+    "title": "Taxonomy of Data",
+    "section": "Grayscale",
+    "text": "Grayscale\n\n\nTo simplify, assume our photos are 8 x 8 grayscale images."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#images-in-a-data-frame",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#images-in-a-data-frame",
+    "title": "Taxonomy of Data",
+    "section": "Images in a Data Frame",
+    "text": "Images in a Data Frame\nConsider the following images which are our data:\n\n\n\n\n\n\n\n\n\nLet’s simplify them to 8 x 8 grayscale images"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#images-in-a-data-frame-1",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#images-in-a-data-frame-1",
+    "title": "Taxonomy of Data",
+    "section": "Images in a Data Frame",
+    "text": "Images in a Data Frame\n\n\n\n\n\n\n\n\n\nIf you were to put the data from these (8 x 8 grayscale) images into a data frame, what would the dimensions of that data frame be in rows x columns? Answer at pollev.com.\n\n\n\n\n\n−+\n01:00"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#a-note-on-variables",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#a-note-on-variables",
+    "title": "Taxonomy of Data",
+    "section": "A note on variables",
+    "text": "A note on variables\nThere are three things that “variable” could be referring to:\n\n\na phenomenon\nhow the phenomenon is being recorded or measured into data\n\nwhat values can it take? (this is often an intent- or value-laden exercise!)\nfor numerical units, what unit should we express it in?\n\nHow the recorded data is being analyzed\n\nmight you bin/discretizing income data? what are the consequences of this?\n\n\n\n\n\nFor the following question, you may work under the second definition."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#what-type-of-variable-is-age",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#what-type-of-variable-is-age",
+    "title": "Taxonomy of Data",
+    "section": "What type of variable is age?",
+    "text": "What type of variable is age?\nFor each of the following scenarios where age could be a variable, choose the most appropriate taxonomy according to the Taxonomy of Data.\n\n\nAges of television audiences/demographics\nAges of UC Berkeley students\nThe weight of a rock\n\n\n\n\nAnswer at pollev.com.\n\n\n\n\n−+\n01:00"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-1",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-1",
+    "title": "Taxonomy of Data",
+    "section": "Educated Guess 1",
+    "text": "Educated Guess 1\n\nWhat will happen here?\n\n\nAnswer at pollev.com/&lt;name&gt;\n\n\n\n\n1 + \"one\"\n\n\n\n\n−+\n01:00\n\n\n\n\n\n“one” is a string with no link at all to the number 1\nwithout that link, without two objects that are recognized for their numerical value, + doesn’t work."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-2",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-2",
+    "title": "Taxonomy of Data",
+    "section": "Educated Guess 2",
+    "text": "Educated Guess 2\n\nWhat will happen here?\n\n\nAnswer at pollev.com/&lt;name&gt;\n\n\n\n\na &lt;- c(1, 2, 3, 4)\nsqrt(log(a))\n\n\n\n\n−+\n01:00\n\n\n\n\nTalking points - a is a vector of length four - log and sqrt are functions that will return vectors of length four - they’re nested and will be evaluated from the inside out"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-3",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-3",
+    "title": "Taxonomy of Data",
+    "section": "Educated Guess 3",
+    "text": "Educated Guess 3\n\nWhat will happen here?\n\n\nAnswer at pollev.com/&lt;name&gt;\n\n\n\n\na &lt;- 1 + 2\na + 1\n\n\n\n\n−+\n01:00\n\n\n\n\n\na is a not a string, it’s the name of an object that’s a number\nto overwrite a with a + 1 requires re-assigning it to a: a &lt;- a + 1 (in some languages, a + 1 would change the value of a)\na &lt;- a + 1 is a good time to mention that while a = a + 1 works in R and they might see it online, its convention to use &lt;- for many reasons including that mathematically the statement with = is confusing."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-4",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#educated-guess-4",
+    "title": "Taxonomy of Data",
+    "section": "Educated Guess 4",
+    "text": "Educated Guess 4\n\nWhat will happen here?\n\n\nAnswer at pollev.com/&lt;name&gt;\n\n\n\n\na &lt;- c(1, 3.14, \"seven\")\nclass(a)\n\n\n\n\n−+\n01:00\n\n\n\n\n\nthe definition of a vector requires every element to be of the same type\nbased on their reading, there are three classes that they’re familiar with: numeric, factor, and character\nthere’s no way to translate “seven” into 7, so instead 1 and 3.14 must be translated into strings\nthey will likely encounter this when looking at a data set in R (or other languages) and finding that vectors with what looked like numbers are stored as strings. This usually happens because there’s a single errant character that the language doesn’t know how to parse as a number."
+  },
+  {
     "objectID": "1-questions-and-data/labs/unvotes/lab.html",
     "href": "1-questions-and-data/labs/unvotes/lab.html",
     "title": "Lab 1: UN Votes",

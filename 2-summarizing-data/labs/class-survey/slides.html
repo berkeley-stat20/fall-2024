@@ -8,7 +8,9 @@
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../../../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.6">
 
   <meta name="author" content="STAT 20: Introduction to Probability and Statistics">
@@ -330,20 +332,18 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../../../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="Lab: Class Survey – Stat 20">
-<meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/02-class-survey/assets/stat20-hex.png">
+<meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/class-survey/assets/stat20-hex.png">
 <meta property="og:site_name" content="Stat 20">
 <meta name="twitter:title" content="Lab: Class Survey – Stat 20">
-<meta name="twitter:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/02-class-survey/assets/stat20-hex.png">
+<meta name="twitter:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/class-survey/assets/stat20-hex.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="../../../assets/stat20-hex-bg.png" data-background-size="contain" class="quarto-title-block center">
+<section id="title-slide" data-background-image="../../../site_libs/quarto-contrib/quarto-project/stat20/stat20slides/stat20-hex-bg.png" data-background-size="contain" class="quarto-title-block center">
   <h1 class="title">Lab: Class Survey</h1>
 
 <div class="quarto-title-authors">
@@ -355,30 +355,29 @@ STAT 20: Introduction to Probability and Statistics
 </div>
 
 </section>
-<section id="lab-1.1-understanding-the-context-of-the-data" class="title-slide slide level1 center">
-<h1>Lab 1.1: Understanding the Context of the Data</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_40f08820" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<section id="part-1-understanding-the-context-of-the-data" class="title-slide slide level1 center">
+<h1>Part 1: Understanding the Context of the Data</h1>
+<div id="timer_519e320b98ce3bb8043701e06dd89093b48280c8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </section>
 
-<section id="lab-1.2-computing-on-the-data" class="title-slide slide level1 center">
-<h1>Lab 1.2: Computing on the Data</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_032bedc7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<section id="part-2-computing-on-the-data" class="title-slide slide level1 center">
+<h1>Part 2: Computing on the Data</h1>
+<div id="timer_519e320b98ce3bb8043701e06dd89093b48280c8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 
 <div class="quarto-auto-generated-content">
+<p><img src="../../../site_libs/quarto-contrib/quarto-project/stat20/stat20slides/stat20-hex-vsmall.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -594,44 +593,6 @@ STAT 20: Introduction to Probability and Statistics
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -818,6 +779,33 @@ STAT 20: Introduction to Probability and Statistics
         }
       }
     });
+    </script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+        var logo = document.querySelector('.slide-logo');
+        logo.addEventListener('click', function() {
+          // Get the referrer URL
+          var referrer = document.referrer;
+
+          // Check if the referrer is from the same origin for security purposes
+          if (referrer && new URL(referrer).origin === window.location.origin) {
+          // Redirect to the referrer URL
+          window.location.href = referrer;
+          } else {
+            // Fallback action if there's no referrer or it's from a different origin
+            // For example, redirect to a home page or show a message
+            window.location.href = '/'; // Redirecting to the home page
+          }
+        });
+      });
+      Reveal.addEventListener('slidechanged', (event) => {
+        if (event.indexh === 0) {
+          Reveal.configure({ slideNumber: null });
+        }
+        if (event.indexh === 1) { 
+          Reveal.configure({ slideNumber: 'c' });
+        }
+      });
     </script>
     
 

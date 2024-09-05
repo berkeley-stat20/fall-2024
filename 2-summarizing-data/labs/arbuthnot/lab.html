@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>learning-objectives – Stat 20</title>
+<title>Lab 1: Arbuthnot – Stat 20</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,13 +77,17 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="Stat 20">
+<meta property="og:title" content="Lab 1: Arbuthnot – Stat 20">
 <meta property="og:description" content="Introduction to Probability and Statistics at UC Berkeley">
-<meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/01-arbuthnot/assets/stat20-hex.png">
+<meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/arbuthnot/images/christenings-sm.png">
 <meta property="og:site_name" content="Stat 20">
-<meta name="twitter:title" content="Stat 20">
+<meta property="og:image:height" content="408">
+<meta property="og:image:width" content="542">
+<meta name="twitter:title" content="Lab 1: Arbuthnot – Stat 20">
 <meta name="twitter:description" content="Introduction to Probability and Statistics at UC Berkeley">
-<meta name="twitter:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/01-arbuthnot/assets/stat20-hex.png">
+<meta name="twitter:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/labs/arbuthnot/images/christenings-sm.png">
+<meta name="twitter:image-height" content="408">
+<meta name="twitter:image-width" content="542">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -147,77 +151,61 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab 1: Arbuthnot</h1>
+</div>
 
 
 
-<p>Note: this is leftover verbiage from a previous iteration of this lab. It can be adapted form the learning objectives.</p>
-<section id="the-stucture-of-lab-assignments" class="level3">
-<h3 class="anchored" data-anchor-id="the-stucture-of-lab-assignments">The Stucture of Lab Assignments</h3>
-<p>Questions in Part I deal with the context in which Arbuthnot collected his data. These questions should should be answered before you have looked at the data itself. In general, in Part I you will identify the question of interest, consider the manner in which it arose, and set expectations for the shape and structure of the data.</p>
-<p>Part II is where you get your hands on the data and consider where it aligns with and diverges from your expections from Part I. Part III features extensions of the ideas in Part I and Part II, often to a new data set.</p>
-<p>Your work should feature writing that is clear and in full sentences. Your document should be formatted cleanly, with appropriate use of headers, body text, and lists. Your code should be clear and simple, with no extraneous code.</p>
-<p>Certain questions on the labs in this class call for speculation or for your opinion. There may not be a single correct answer, but some are more reasonable and thoughtful than others. You’re encouraged to talk these questions through with your peers and course staff during lab sessions, evening study session, and office hours.</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- The bit before that is commented out adds publish date to document metadata and button links at the top of the doc. This workflow can be revisited but currently doesn't work because listings aren't updated with these dates, only the renderd docs. -->
+<p><a href="../../../2-summarizing-data/labs/arbuthnot/slides.html"><span class="btn btn-primary">Slides</span></a></p>
+<section id="part-1-understanding-the-context-of-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-understanding-the-context-of-the-data">Part 1: Understanding the Context of the Data</h2>
+<p>The first part of each of our labs will be a worksheet where you’ll think more about the context of the data, help formulate your questions, and set expectations for what the data will look like. Please record your answers on the worksheet below and upload it to Gradescope as Lab 1.1.</p>
+<ul>
+<li><a href="../../../2-summarizing-data/labs/arbuthnot/lab-context.pdf">Part 1: Understanding the Context of the Data</a></li>
+</ul>
+</section>
+<section id="part-ii-computing-on-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-computing-on-the-data">Part II: Computing on the Data</h2>
+<section id="quarto-lab-format" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-lab-format">Quarto Lab Format</h4>
+<p>The second part of each lab is your chance to dive into a real data set to answer the questions that you posed in Part 1. To ensure your analysis is reproducible, please record your answers to these questions (both the text and code) in a .qmd file. Render your work to an HTML file regularly as a check that your code is running. When you are pleased with the result, print that HTML to a pdf (File &gt; Print &gt; Save as pdf in your browser), then upload to Gradescope as Lab 1.2. See Ed for more info about lab submission.</p>
+</section>
+<section id="lab-questions" class="level4">
+<h4 class="anchored" data-anchor-id="lab-questions">Lab Questions</h4>
+<p>The first several questions pertain to the <code>arbuthnot</code> data frame found in <code>library(stat20data)</code>.</p>
+<ol type="1">
+<li><p>What is the time frame covered by Arbuthnot’s data?</p></li>
+<li><p>Which year saw the greatest number of children christened?</p></li>
+<li><p>What is the proportion of girls christened in 1700?</p></li>
+<li><p>What is the trend over time in the total number of children christened? Please answer with a plot and written interpretation.</p></li>
+<li><p>What is the trend over time in the proportion of girls christened? Please answer with a plot and written interpretation.</p></li>
+</ol>
 <hr>
-</section>
-<section id="concepts" class="level3">
-<h3 class="anchored" data-anchor-id="concepts">Concepts</h3>
-<ul>
-<li>Proposing a research question and articulating the evidence (data and other) that could bear on that question.</li>
-<li>Identification of the unit of observation and the names and types of variables.</li>
-<li>Creating a statistical graphic that can answer a research question and interpreting the observed structure in the data.</li>
-<li>Assessing the degree to which a statistical graphic supports a claim / answers a question.</li>
-</ul>
-</section>
-<section id="skills-from-the-r-workshop" class="level3">
-<h3 class="anchored" data-anchor-id="skills-from-the-r-workshop">Skills from the R Workshop</h3>
-<section id="rstudio-terminology" class="level4">
-<h4 class="anchored" data-anchor-id="rstudio-terminology">RStudio Terminology</h4>
-<ul>
-<li>Console</li>
-<li>Environment</li>
-<li>Editor</li>
-<li>File Directory</li>
-</ul>
-</section>
-<section id="rrstudio-concepts" class="level4">
-<h4 class="anchored" data-anchor-id="rrstudio-concepts">R/RStudio Concepts</h4>
-<ul>
-<li>Printing to the console vs saving to the environment</li>
-<li>R scripts as final draft of code, console as the sandbox <!-- Things to not teach: paths--></li>
-</ul>
-</section>
-<section id="r-functions" class="level4">
-<h4 class="anchored" data-anchor-id="r-functions">R Functions</h4>
-<ul>
-<li><p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code></p></li>
-<li><p><code>&lt;-</code></p></li>
-<li><p><code>?</code></p></li>
-<li><p><code>library()</code></p></li>
-<li><p><code>c()</code></p></li>
-<li><p><code>class()</code></p></li>
-<li><p><code>sum()</code></p></li>
-<li><p><code>mean()</code></p></li>
-<li><p><code>data()</code></p></li>
-<li><p><code>tibble()</code></p></li>
-<li><p><code>select()</code></p></li>
-<li><p><code>arrange()</code></p></li>
-<li><p><code>mutate()</code></p></li>
-</ul>
-<!-- Things to not teach: paths-->
-</section>
-</section>
-<section id="skills-from-thursday-lab" class="level3">
-<h3 class="anchored" data-anchor-id="skills-from-thursday-lab">Skills from Thursday lab</h3>
-<ul>
-<li>loading <code>arbuthnot</code></li>
-<li>loading <code>tidyverse</code></li>
-<li>practice with <code>select()</code>, <code>mutate()</code>, and <code>arrange()</code></li>
-<li>making a line plot using ggplot</li>
-</ul>
-<!--## Additional Readings
-- John Arbuthnot's Manuscript ([original](https://royalsocietypublishing.org/doi/pdf/10.1098/rstl.1710.0011), [transcribed](https://www.york.ac.uk/depts/maths/histstat/arbuthnot.pdf)). Originally entitled *An argument for divine providence, taken from the constant regularity observ'd in the births of both sexes.*, his publication in the proceedings of the Royal Society in 1710 stand out as much for the theogical argument that he makes prescient statistical methods.-->
+<p>The remaining questions pertain to the <code>present</code> data frame found in <code>library(stat20data)</code>.</p>
+<ol start="6" type="1">
+<li><p>What is the time frame covered by the present-day data?</p></li>
+<li><p>In terms of general magnitude (size), how do the counts in Arbuthnot’s data compare to the counts in the present-day data?</p></li>
+<li><p>What is the trend over time in the proportion of births that are girls? Please answer with a plot and written interpretation.</p></li>
+<li><p>Based on these two data sets, what claim are you prepared to make regarding John Arbuthnot’s original question? What reservations, if any, do you have about using this data to make the claim?</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

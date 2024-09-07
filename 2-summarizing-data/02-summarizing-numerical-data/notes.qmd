@@ -397,11 +397,10 @@ Here are some measures of spread which *do* meet all three criterion. They do th
 
 The sample variance:
 
--   Takes the differences from each observation, $x_i$, to the sample mean $\bar{x}$;
--   squares them;
--   adds them all up;
--   divides by $n - 1$;
--   then finally, takes the square root.
+-   takes the differences from each observation, $x_i$, to the sample mean $\bar{x}$,
+-   squares them,
+-   adds them all up, then
+-   divides by $n - 1$.
 
 :::{.column-margin}
 The function in R: `var()`
@@ -409,6 +408,7 @@ The function in R: `var()`
 
 
 $$ s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} \left( x_i - \bar{x}\right)^2 $$
+
 This formula is rather dense; don't worry! We won't ask you to memorize it. The key is that is fits the three criterion we were hoping for. 
 
 The distance $(x_i - \bar{x})^2$ will be small when $x_i$ is close to the mean, and large when it's not. This means the first two criterion are met. Additionally, because we are dividing by a number close to $n$, ($n-1$), the statistic does not grow or shrink with $n$. This means the last criterion is met!
@@ -421,7 +421,6 @@ This means that the information from the two data points $7$ and $9$ have been c
 
 For our list:
 
-
 $$ s^2 =  2.87 $$
 
 #### The Sample Standard Deviation
@@ -432,11 +431,12 @@ $$ s = \sqrt{\frac{1}{n - 1} \sum_{i=1}^{n} \left( x_i - \bar{x}\right)^2} $$
 The function in R: `sd()`
 :::
 
-The sample standard deviation $s$ is the same as the sample variance $s^2$: we've just taken the square root. One reason for using the sample standard deviation is that it at times is more interpret-able than the sample variance, since it's measured in units rather than units squared.
+The sample standard deviation $s$ is closely related to the sample variance $s^2$: we've just taken the square root. One reason for using the sample standard deviation is that it is more interpretable than the sample variance since it is measured in the original units rather than units squared.
 
 For our list: 
 
 $$ s =  1.69 $$
+
 We can say, therefore, that each data point is about 1.7 units apart from each other.
 
 ---
@@ -445,7 +445,7 @@ While the sample variance and sample standard deviation are great for measuring 
 
 Namely, when data is not symmetric, the square around $x_i - \bar{x}$ can cause some issues. Asymmetrical data will have many values $x_i$ (large or small) which are far from the mean $\bar{x}$.
 
-If $x_i - \bar{x}$ is large, then $(x_i - \bar{x})^2$ will be *very* large. Therefore, $s^2$ and $s$ can produce values that are overestimates of the spread of *most* of the data. Here are two measures of spread which counter-act this. 
+If $x_i - \bar{x}$ is large, then $(x_i - \bar{x})^2$ will be *very* large. Therefore, $s^2$ and $s$ can lead an inflated sense of the spread of *most* of the data. Here are two measures of spread which counteract this. 
 
 #### IQR (Interquartile Range)
 

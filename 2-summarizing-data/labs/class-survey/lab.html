@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../assets/favicon.ico" rel="icon">
+<link href="../../../assets/stat20-hex.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -179,65 +213,56 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <li><a href="../../../2-summarizing-data/labs/class-survey/lab-context.pdf">Part 1: Understanding the Context of the Data</a></li>
 </ul>
 <p>To answer this worksheet, consult the printout of the original survey found <a href="../../../2-summarizing-data/labs/class-survey/glimpse-class-survey.pdf">here</a>.</p>
-<!-- ## Part II: Computing on the Data -->
-<!-- The real data from your surveys is available in the `stat20data` package as `class_survey`. To complete the following questions, you will need to find the columns in the `class_survey` data frame associated with each variable mentioned. -->
-<!-- #### Question 1 -->
-<!-- > How much coding experience do students have? -->
-<!-- Use the "scale" version for this question. -->
-<!-- ##### part a -->
-<!-- Construct an appropriate plot for this variable using `ggplot2`. -->
-<!-- ##### part b -->
-<!-- Then calculate *one* appropriate measure of a spread and *one* appropriate measure of center for this variable. -->
-<!-- ##### part c -->
-<!-- Use these summaries to answer the survey question in a sentence or two. -->
-<!-- #### Question 2 -->
-<!-- For this question only, you may use the following, modified dataset, which can be obtained by running the following code in R.  -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- #| echo: true -->
-<!-- #| code-fold: false -->
-<!-- filtered_survey <- filter(class_survey,  -->
-<!--                           new_COVID_variant >= 0, -->
-<!--                           new_COVID_variant < 1) -->
-<!-- ``` -->
-<!-- > What are students' perceptions of the chance that there is a new COVID variant that disrupts instruction in Fall 2022? -->
-<!-- ##### part a -->
-<!-- Construct an appropriate plot for this variable using `ggplot2`. -->
-<!-- ##### part b -->
-<!-- Then calculate *one* appropriate measure of a spread and *one* appropriate measure of center for this variable. -->
-<!-- ##### part c -->
-<!-- Use these summaries to answer the survey question in a sentence or two. -->
-<!-- #### Question 3 -->
-<!-- > Is there an association between students' favorite season and terrain preference (beach or mountains)? -->
-<!-- ##### part a -->
-<!-- Construct the plot that you proposed in **Part I** using `ggplot2`. *Ensure that the seasons are plotted in the order: spring, summer, fall, winter*. -->
-<!-- ##### part b -->
-<!-- Then, state a measure of a typical observation of the terrain preference variable for each season group (what terrain does a typical student whose favorite season is fall prefer, and so on). -->
-<!-- ##### part c -->
-<!-- Use these summaries to answer the survey question in a sentence or two. -->
-<!-- #### Question 4 -->
-<!-- > Is there an association between students most identifying as an entrepreneur and their optimism for cryptocurrency? -->
-<!-- You may treat the `entrepreneur` variable categorically. -->
-<!-- ##### part a -->
-<!-- Construct an appropriate plot including both of these variables using `ggplot2`. -->
-<!-- ##### part b -->
-<!-- Then calculate *one* appropriate measure of a spread and *one* appropriate measure of center for the cryptocurrency variable, grouping by the levels of the `entrepreneur` variable. -->
-<!-- ##### part c -->
-<!-- Use these summaries to answer the survey question in a sentence or two. -->
-<!-- #### Question 5 -->
-<!-- Six variables appear in the survey data frame that were derived from the original `title` question: `artist`, `humanist`, `natural_scientist`, `social_scientist`, `comp_scientist` and `entrepreneur`. The `artist` variable is `TRUE` for those students who most identified as an artist and `FALSE` otherwise. The other five variables are defined similarly. You may treat these variables categorically. -->
-<!-- ##### part a -->
-<!-- Propose your own question involving any two variables in the dataset--*one* of which comes from the `title` variable group mentioned above. -->
-<!-- ##### part b -->
-<!-- Construct a plot which would aid in answering this question using `ggplot2`. -->
-<!-- ##### part c -->
-<!-- Grouping by the levels of the `title` group variable, -->
-<!-- calculate or state *one* appropriate measure of center for -->
-<!-- your second variable. -->
-<!-- ##### part d -->
-<!-- Use these summaries to answer your question in **part a** in a sentence or two. -->
+</section>
+<section id="part-ii-computing-on-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-computing-on-the-data">Part II: Computing on the Data</h2>
+<p>You can access the real data from the Stat 20 Class Survey by adding the following line of code to a code cell at the top of your Quarto document.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>class_survey <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://tinyurl.com/stat20-survey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To complete the following questions, you will need to find the columns in the <code>class_survey</code> data frame associated with each variable mentioned.</p>
+<section id="question-1" class="level4">
+<h4 class="anchored" data-anchor-id="question-1">Question 1</h4>
+<p><em>Do students prefer to spend time at the beach or in the mountains?</em></p>
+<p>Construct a plot that answers this question and calculate a measure of a typical observation (mean, median, or mode, as appropriate). Then use the plot and this summary to answer the original question in a sentence.</p>
+</section>
+<section id="question-2" class="level4">
+<h4 class="anchored" data-anchor-id="question-2">Question 2</h4>
+<p><em>Is there an association between students’ favorite season and terrain preference (beach or mountains)?</em></p>
+<p>Construct a plot that answers this question. Use this plot to answer the question in one sentence.</p>
+</section>
+<section id="question-3" class="level4">
+<h4 class="anchored" data-anchor-id="question-3">Question 3</h4>
+<p><em>How much coding experience do students have?</em> (numerical scale)</p>
+<p>Construct a plot that answers this question and calculate a measure of a typical observation (mean, median, or mode, as appropriate). Then use the plot and this summary to answer the original question in a sentence.</p>
+</section>
+<section id="question-4" class="level4">
+<h4 class="anchored" data-anchor-id="question-4">Question 4</h4>
+<p><em>What is the relationship between students’ optimism for cryptocurrency and their skepticism of the effect of technology on interpersonal relationships?</em></p>
+<p>Construct a plot that answers this question. Use this plot to answer the question in one sentence.</p>
+<hr>
+<p>Six variables appear in the survey data frame that were derived from the original <code>prof_label</code> question: <code>is_artist</code>, <code>is_humanist</code>, <code>is_nat_sci</code>, <code>is_soc_sci</code>, <code>is_comp_sci</code> and <code>is_entrepreneur</code>. The <code>is_artist</code> variable is <code>TRUE</code> for those students who most identified as an artist and <code>FALSE</code> otherwise. The other five variables are defined similarly.</p>
+<p>For the following four questions, please answer with a plot and a sentence or two written response given the structure in the plot.</p>
+</section>
+<section id="question-5" class="level4">
+<h4 class="anchored" data-anchor-id="question-5">Question 5</h4>
+<p>Is there an relationship between students most identifying as an entrepreneur and their optimism for cryptocurrency?</p>
+</section>
+<section id="question-6" class="level4">
+<h4 class="anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Is there an relationship between students most identifying as a humanist and their optimism for cryptocurrency?</p>
+</section>
+<section id="question-7" class="level4">
+<h4 class="anchored" data-anchor-id="question-7">Question 7</h4>
+<p>Propose your own question involving one of the <code>is_</code> variables and numerical variable of your choice. Construct a plot that addresses the question, calculate a measure of center for the two groups separately (e.g.&nbsp;comparing those who identify as artists with those who do not), then use them to answer your questions in one or two sentences.</p>
+</section>
+<section id="question-8" class="level4">
+<h4 class="anchored" data-anchor-id="question-8">Question 8</h4>
+<p>This last one is a full choose-your-own adventure: propose your own question involving two or three variables and answer it using a plot with a written interpretation.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

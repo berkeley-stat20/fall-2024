@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../assets/favicon.ico" rel="icon">
+<link href="../../assets/stat20-hex.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -208,15 +208,6 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <li>Annotations</li>
 </ol>
 <p>We will use two running examples throughout these notes: a line plot of the number of christenings in 17th century London<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and a scatter plot showing the bill sizes of penguins near Palmer Station, Antarctica<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
 <section id="mapping-vs-setting" class="level2">
 <h2 class="anchored" data-anchor-id="mapping-vs-setting">1. Mapping vs Setting</h2>
 <p>Once you have your first draft of a plot complete and you’re thinking about how to fine tune it for your audience, your eye will turn to the aesthetic attributes. Is that color right? What about the size of the points?</p>
@@ -225,15 +216,6 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <summary>
 Click here when you’re ready to see the result.
 </summary>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 </details>
 <p>This is . . . unexpected. Why did it color the points red? Is this a bug?</p>
 <p>What we’ve stumbled into is a subtle but essential distinction in the grammar of graphics: <em>mapping</em> vs <em>setting</em>. When you put an aesthetic attribute (<code>x</code>, <code>color</code>, <code>size</code>, etc.) into the <code>aes()</code> function, you’re mapping that attribute in the plot to whatever data lives in the corresponding column in the data frame. Mapping was this process:</p>
@@ -244,36 +226,9 @@ Click here when you’re ready to see the result.
 </div>
 <p>That’s not what we set out to do here. We just wanted to tweak the look of our aesthetic attributes in a way that doesn’t have anything to do with the data in our data frame. This process is called <em>setting</em> the attribute.</p>
 <p>To set the color to blue<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, we need to make just a small change to the syntax. Let’s move the <code>color = "blue"</code> argument outside of the <code>aes()</code> function and into the <code>geom_()</code> function.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Ah, that looks much better!</p>
 <p>Color isn’t the only aesthetic attribute that you can set. Let’s increase slightly the size of our points by setting the size to three times the size of the default.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>It’s not clear that that improves the readability of the plot - there is more overlap between the points now - but the setting worked. How would it have looked if instead we had mapped the size? When you map, you need a map to a column in your data frame, so let’s map size to species.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>We’ve made a mess of our plot now, but it is clear what happened. R looked inside the <code>species</code> column, found a categorical variable with three levels and selected a distinct size for each of those levels.</p>
 <p>This is another area in which the grammar of graphic guides clear thinking when constructing a graphic. The aesthetic attributes of a plot can be determined either by variability found in a data set or by fixed values that we set. The former is present in all data visualization but it’s the latter that comes into play when fine-tuning your plot for an audience.</p>
 </section>
@@ -281,36 +236,9 @@ Click here when you’re ready to see the result.
 <h2 class="anchored" data-anchor-id="adding-labels-for-clarity">2. Adding Labels for Clarity</h2>
 <p>You may have noticed that <code>ggplot2</code> pulls the labels for the x-axis, the y-axis, and the legend directly from the names of the variables in the data frame. This results in labels like <code>bill_length_mm</code>, which is no problem when you’re making plots for yourself - you know what this variable means. But will an outside audience?</p>
 <p>You can change the labels of your plot by adding a <code>labs()</code> layer.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Axis and legend labels should be concise and often include the units of measurement. If you find them getting too wordy, know that you can clarify or expand on what is being plotted either in a figure caption or in the accompanying text.</p>
 <p>Speaking of captions, those a can be added too, as well as a title.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>The title of a plot is valuable real estate for communicating the primary story of your plot. It should highlight the most important structure in the data. In the plot above, there appears to be little correspondence between bill length and bill depth. Of course, that changes when we map species to color. Let’s make that plot and title it accordingly.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>The practice of using the plot title to convey the main message of the plot is used to powerful effect by the visualization experts at the British publication, <em>The Financial Times</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. They have developed a wealth of visualizations to help readers understand what is happening with public health throughout the pandemic. The sobering graphic below uses the title to guide the viewer to the most important visual structure in the plot: the yawning vertical gap between dosage rates between high and low income countries.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -322,28 +250,10 @@ Click here when you’re ready to see the result.
 <h2 class="anchored" data-anchor-id="the-importance-of-scale">3. The Importance of Scale</h2>
 <p>When a person views your plot, their first impression will be determined by a coarse interpretation of the boldest visual statement. When using a line plot, that is usually the general trend seen when reading left to right.</p>
 <p>What is the first word that comes to mind to describe the trend in each of the four plots below?</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Clockwise from the upper left, you likely said something like “increasing”, “decreasing”, “variable”, and “stable”. Now take a second look. What exactly is being plotted here?</p>
 <p>The labels along the axes are a hint to what you’re looking at here. These are, in fact, four plots from the exact same data: Arbuthnot christening records, with the proportion of girls christened on the x-axis. What differs is the limits of the x- and y-axes.</p>
 <p>Most software will automatically set the limits of your plot based on the range of the data. In the Arbuthnot data, the years range from 1629 to 1710 and the proportion of girls christened ranges from .463 to .497. The leads to the default graphic found in the lower left panel. Each of the other three plots have modified the limits of the x- or y-axis to capture different parts the data scaled in different ways. In <code>ggplot2</code> this is done by adding an <code>xlim()</code> or <code>ylim()</code> layer.</p>
 <p>This is the power of scaling. From one data set, you can convey four different (and incompatible!) messages by changing the scale. So which one is correct? It depends on the context and the question that drove the collection of the data. John Arbuthnot sought to understand the whether the chance of being born a girl is 1/2. That question is answered most clearly by the following plot (with the title driving home that main message).</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>The importance of scale extends beyond scatter and line plots. Barcharts are often the subject of careful scaling to convey a particular message. What do you think the goal was of the creator of the plot titled “Should Britain Leave EU?”<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -365,66 +275,21 @@ Click here when you’re ready to see the result.
 </figure>
 </div>
 <p>The result was a data frame with 707 rows (one for every respondent) and 2 columns of discrete numerical data. A natural way to visualize this data is by creating a scatter plot.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>The eye is immediately drawn to the eerie geometric regularity of this data. Isn’t real data messier than this? What’s going on?</p>
 <p>A hint is in the sample size. The number of observations in the data set was over 600 and yet the number of points shown here is just a bit under 100. Where did those other observations go?</p>
 <p>It turns out they are in this plot, they’re just piled on on top of the other. Since there are only 10 possible values for each question, many students ended up selecting the same values for both, leading their points to be drawn on top of one another.</p>
 <p>This phenomenon is called <em>overplotting</em> and it is very common in large data sets. There are several strategies for dealing with it, but here we cover two of them.</p>
 <p>One approach to fixing the problem of points piled on top of one another is to unpile them by adding just a little bit of random noise to their x- and y-coordinate. This technique is called <em>jittering</em> and can be done in <code>ggplot2</code> by replacing <code>geom_point()</code> with <code>geom_jitter()</code>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Ahh . . . there are those previously hidden students. Interestingly, the title on the first plot still holds true: even when we’re looking at <em>all</em> of the students, there doesn’t appear to be much of a pattern. There is certainly not the case in all overplotted data sets! Often overplotting will obscure a pattern that jumps out after the overplotting has been attended to.</p>
 <p>The second technique is to make the points transparent by changing an aestheric attribute called the <em>alpha</em> value. Let’s combine tranparency with jittering to understand the effect.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Alpha is a number between 0 and 1, where 1 is fully opaque and 0 is fully see-through. Here, <code>alpha = .3</code>, which changes all observations from black to gray. Where the points overlap, their alpha values add to create a dark blob.</p>
 <p>There’s still no sign of a strong association between these variables, but at least, by taking overplotting into consideration, we’ve made that determination after incorporating all of the data.</p>
 </section>
 <section id="choosing-a-theme" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-a-theme">5. Choosing a Theme</h2>
 <p>What piece of software did I use to produce the following plot?</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>If you said “Excel”, you are correct! Well… it is Excel in spirit. What makes this plot look like it was made in Excel are a series of small visual choices that were made: the background is a dark gray, there are black horizontal guide lines, and the plot and the legend is surrounded by a black box. Small decisions like these that effect the overall look and feel of the plot are called the <em>theme</em>.</p>
 <p>Let’s look at a few more. Do they look familiar?</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>They are, from top to bottom, a theme based on <em>The Wall Street Journal</em>, <em>The Economist</em>, and one of the themes built into <code>ggplot2</code> packaged called <code>bw</code> for “black and white” (there are no grays). The <code>ggplot2</code> library has several themes to choose from and yet more live in other packages like <code>ggthemes</code>. To use a theme, all you need to do is add a layer called <code>theme_NAME</code> (e.g.&nbsp;for the black and white theme, use <code>theme_bw</code>).</p>
 <p>Themeing your plots is an easy way to change the look of your plot. Tinker with a few different themes and considering adding them to your labs<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. But, as with all design decisions around graphics, be sure to think about your audience. You might find the Excel aesthetics ugly and dated, but will your audience? If you’re presenting your plot to a community that works with Excel plots day in and day out, that’s probably a sound choice. If you are preparing a plot for submission to a scientific journal, a more minimalist theme is more appropriate.</p>
 </section>
@@ -432,15 +297,6 @@ Click here when you’re ready to see the result.
 <h2 class="anchored" data-anchor-id="annotations">6. Annotations</h2>
 <p>In the same way that a title highlights the main message of a plot, you can rely upon visual cues to draw attention to certain components or provide helpful context.</p>
 <p>The christening records collected by John Arbuthnot, although they seem like a very simple data set, actually capture a wealth of historical information. We can add this information to our plot by adding <em>annotations</em>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="notes_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Were you curious about what caused that dip in the number of christenings in 17th century London? It happens to correspond to the duration of the English Civil War, when the monarchy was overthrown by a dictator named Oliver Cromwell. This very important context can be conveyed by adding a text label and a line segment through two new <code>annotate()</code> layers.</p>
 <p>Within <code>ggplot2</code>, annotations are a flexible way to add the context or comparisons that help guide readers in interpreting your data. You can add text, shapes, lines, points. To learn more, consult the documentation<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
 <p>So if the drop after 1642 corresponds to the English Civil War, what about the spike down around 1666? What about 1703? If you’re curious, explore Wikipedia to find out and add those events as annotations to this plot.</p>

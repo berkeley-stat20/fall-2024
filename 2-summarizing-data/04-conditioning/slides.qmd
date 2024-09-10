@@ -3,6 +3,7 @@ title: "Data Pipelines"
 format: stat20slides-revealjs
 execute:
   echo: true
+  eval: false
 ---
 
 ## Agenda
@@ -100,7 +101,7 @@ Which observations will be included in the following data frame?
 ```{r echo = TRUE, eval = FALSE}
 class_survey |>
   filter(coding_exp_scale < 3,
-        olympic_sport %in% c("Ice skating", "Speed skating"),
+        olympics %in% c("Ice skating", "Speed skating"),
         entrepreneur == TRUE)
 ```
 
@@ -361,7 +362,6 @@ It's good practice to understand the output of each line of code by *breaking th
 
 ```{r}
 #| echo: true
-#| eval: true
 #| error: true
 class_survey |>
   select(new_COVID_variant) |>
@@ -372,7 +372,6 @@ class_survey |>
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
-#| eval: true
 class_survey |>
   select(new_COVID_variant)
 ```

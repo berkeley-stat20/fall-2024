@@ -330,6 +330,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="A Grammar of Graphics – Stat 20">
 <meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/2-summarizing-data/03-a-grammar-of-graphics/assets/stat20-hex.png">
 <meta property="og:site_name" content="Stat 20">
@@ -353,56 +355,15 @@ STAT 20: Introduction to Probability and Statistics
 </div>
 
 </section>
-<section id="agenda" class="slide level2">
-<h2>Agenda</h2>
-<ul>
-<li>Announcements</li>
-<li>Concept Question</li>
-<li>Concept Activity</li>
-<li>Quiz Review</li>
-<li><em>Break</em></li>
-<li>Lab 2.2: Computing on the Data</li>
-</ul>
-</section>
-<section id="announcements" class="slide level2 scrollable">
-<h2>Announcements</h2>
-<ul>
-<li>Quiz 1 is <strong>not</strong> this upcoming Monday, but <em>next</em> Monday(2/12) in-class. This Monday will be a workshop to complete Lab 2 and PS 4.</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>Lab 2 (both parts) due Tuesday Feb 13 at 9am.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Problem Set 4 due Tuesday Feb 13 at 9am.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Two problem sets without numbers relating to the <em>Understanding the World with Data</em> and <em>A Grammar of Graphics</em> will be posted to the resources tab on the home page of the course website. These are <em>not</em> for a grade and are for studying purposes.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Quiz 1 on Monday Feb 12, in class.
-<ul>
-<li>Individual portion [25 minutes]</li>
-<li>Group (max. 3) portion [15 minutes]</li>
-<li>Please consult the Quiz Megathread and Syllabus for content and logistical questions.</li>
-</ul></li>
-</ul>
-</div>
-</section>
 <section>
-<section id="concept-question" class="title-slide slide level1 center">
-<h1>Concept Question</h1>
+<section id="concept-questions" class="title-slide slide level1 center">
+<h1>Concept Questions</h1>
 
 </section>
 <section id="what-code-was-used-to-make-the-following-plot" class="slide level2">
 <h2>What code was used to make the following plot?</h2>
-<div class="fragment">
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
 <ul>
 <li>Choose an answer at <code>pollev.com</code>.</li>
 </ul>
@@ -424,11 +385,24 @@ Answer at `pollev.com`
 
 
 ::: {.cell layout-align="center"}
-
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-3-1.png){fig-align='center' width=1056}
+:::
 :::
 
 ::: {.cell}
+::: {.cell-output-display}
 
+
+```{=html}
+<div class="countdown" id="timer_b8f54f75" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+```
+
+
+:::
 :::
 
 
@@ -443,11 +417,24 @@ What has changed when moving from the left to the right?
 
 
 ::: {.cell layout-align="center"}
-
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-5-1.png){fig-align='center' width=1056}
+:::
 :::
 
 ::: {.cell}
+::: {.cell-output-display}
 
+
+```{=html}
+<div class="countdown" id="timer_ca13ebb0" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+```
+
+
+:::
 :::
 
 
@@ -483,6 +470,14 @@ What has changed when moving from the left to the right?
 <li>the aesthetic attributes used to encode that data in the plot</li>
 <li>the geometry</li>
 </ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_c7a5691f" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
 </div>
 </section>
 <section id="what-were-the-variables-and-aesthetic-attributes" class="slide level2">
@@ -549,35 +544,103 @@ What has changed when moving from the left to the right?
 </section>
 <section id="what-type-of-claim-was-made" class="slide level2">
 <h2>What type of claim was made?</h2>
+
+<img data-src="images/poll.png" width="870" class="r-stretch"><div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_52b1c6d5" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="what-type-of-variable-is-listeners" class="slide level2">
 <h2>What type of variable is listeners?</h2>
+
+<img data-src="images/spotify.png" width="833" class="r-stretch"><div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_63f0f321" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="what-type-of-proportion-is-used" class="slide level2">
 <h2>What type of proportion is used?</h2>
-<div class="fragment">
+
+<img data-src="images/q1.png" width="915" class="r-stretch"><div class="fragment">
 <blockquote>
 <p>Roughly 68 percent of those passengers who were in the first class survived the wreckage of the Titanic.</p>
 </blockquote>
 </div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_315de7c8" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="which-measure-of-centerspread-is-least-appropriate" class="slide level2">
 <h2>Which measure of center/spread is least appropriate?</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"><div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_977ce2c6" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section id="what-are-the-aesthetics-and-geometry-of-this-plot" class="slide level2">
 <h2>What are the aesthetics and geometry of this plot?</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1056"><div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_d4c43235" data-update-every="1" tabindex="0" style="top:1;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="what-has-not-changed-when-moving-from-left-to-right" class="slide level2">
 <h2>What has not changed when moving from left to right?</h2>
-</section></section>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1056"></section></section>
 <section id="break" class="title-slide slide level1 center">
 <h1>Break</h1>
-
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_dab9b0b9" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 
 <section id="lab-2.2-flights" class="title-slide slide level1 center">
 <h1>Lab 2.2: Flights</h1>
-
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_91046781" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">40</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 
 <section id="end-of-lecture" class="title-slide slide level1 center">

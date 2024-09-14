@@ -138,45 +138,49 @@ scheduled-docs:
           due-tomorrow:
             - Lab 2.1
             - Lab 2.2
-        - topic: "Data Pipelines"
+        - topic: "Conditioning"
           display-date: Sep 17/18
           date: 9/17/24
           before-class:
             docs:
               - type: Notes
+                date: 9/13/24
                 href: 2-summarizing-data/04-conditioning/notes.qmd
+              - type: Tutorial
+                date: 9/13/24
+                href: 2-summarizing-data/04-conditioning/tutorial.qmd
           in-class:
             docs:
               - type: Slides
                 href: 2-summarizing-data/04-conditioning/slides.qmd
               - type: WS
-                href: 2-summarizing-data/04-conditioning/ps.qmd
+                href: 2-summarizing-data/04-conditioning/ws.qmd
+              - type: Lab
+                href: 2-summarizing-data/labs/flights/lab.qmd
         - topic: "Summarizing Associations"
           display-date: Sep 19/20
           date: 9/19/24
           before-class:
             docs:
               - type: Notes
-                href: 2-summarizing-data/06-summarizing-associations/notes.qmd
+                href: 2-summarizing-data/05-summarizing-associations/notes.qmd
           in-class:
             docs:
               - type: Slides
-                href: 2-summarizing-data/06-summarizing-associations/slides.qmd
+                href: 2-summarizing-data/05-summarizing-associations/slides.qmd
               - type: WS
-                href: 2-summarizing-data/06-summarizing-associations/ps.qmd
+                href: 2-summarizing-data/05-summarizing-associations/ws.qmd
         # - topic: "Multiple Linear Regression"
         #   display-date: Sep 19/20
         #   date: 9/19/24
         #   before-class:
         #     docs:
         #       - type: Notes
-        #         href: 2-summarizing-data/07-multiple-linear-regression/notes.qmd
+        #         href: 2-summarizing-data/06-multiple-linear-regression/notes.qmd
         #   in-class:
         #     docs:
         #       - type: Slides
-        #         href: 2-summarizing-data/07-multiple-linear-regression/slides.qmd
-      resources:
-        - '<a href="https://www.stat20.org/2-summarizing-data/07-multiple-linear-regression/extra-practice.pdf"">Extra Practice</a>'
+        #         href: 2-summarizing-data/06-multiple-linear-regression/slides.qmd
     - week: 5
       unit: Generalization
       days:

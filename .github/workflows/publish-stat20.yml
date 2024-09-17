@@ -1,5 +1,7 @@
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "50 9 * * 2" # Every Tuesday at 2:50 am (PDT)
   # schedule:
   #   - cron: "1 0 * * 5" # Every Friday at 5:01 pm (PDT)
   #   - cron: "1 13 * * 2" # Every Tuesday at 6:01 am (PDT)

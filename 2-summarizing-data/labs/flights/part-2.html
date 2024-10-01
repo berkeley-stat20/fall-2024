@@ -188,7 +188,7 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </section>
 <section id="question-3" class="level4">
 <h4 class="anchored" data-anchor-id="question-3">Question 3</h4>
-<p>Arrange the data frame to figure out: what is the destination and delay time (in hrs) for the flight that was <em>most</em> delayed, i.e.&nbsp;that left the most ahead of schedule?</p>
+<p>Arrange the data frame to figure out: what is the destination and delay time (in hrs) for the flight that was <em>most</em> delayed?</p>
 </section>
 <section id="question-4" class="level4">
 <h4 class="anchored" data-anchor-id="question-4">Question 4</h4>
@@ -200,22 +200,18 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </section>
 <section id="question-6" class="level4">
 <h4 class="anchored" data-anchor-id="question-6">Question 6</h4>
-<p>For Oakland and SFO separately, what proportion of flights left on or ahead of schedule?</p>
+<p>How many flights left SFO during March 2020?</p>
 </section>
 <section id="question-7" class="level4">
 <h4 class="anchored" data-anchor-id="question-7">Question 7</h4>
-<p>How many flights left SFO during March 2020?</p>
+<p>How many flights left SFO during April 2020?</p>
 </section>
 <section id="question-8" class="level4">
 <h4 class="anchored" data-anchor-id="question-8">Question 8</h4>
-<p>How many flights left SFO during April 2020?</p>
+<p>Create a bar chart that shows the distribution by month of all the flights leaving the Bay Area (SFO and OAK). Do you any sign of an effect of the pandemic?</p>
 </section>
 <section id="question-9" class="level4">
 <h4 class="anchored" data-anchor-id="question-9">Question 9</h4>
-<p>Create a bar chart that shows the distribution by month of all the flights leaving the Bay Area (SFO and OAK). Do you any sign of an effect of the pandemic?</p>
-</section>
-<section id="question-10" class="level4">
-<h4 class="anchored" data-anchor-id="question-10">Question 10</h4>
 <p>Create a histogram showing the distribution of departure delays for all flights. Be sure to</p>
 <ul>
 <li>set the limits of the x-axis to focus on where most of the data lie,</li>
@@ -223,28 +219,28 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 <li>and below the plot a 1-2 that describes the shape and modality of the distribution.</li>
 </ul>
 </section>
+<section id="question-10" class="level4">
+<h4 class="anchored" data-anchor-id="question-10">Question 10</h4>
+<p>Create a data frame that contains the median and interquartile range for departure delays, grouped by carrier. Which carrier has the lowest typical departure delay? Which one has the least variable departure delays?</p>
+</section>
 <section id="question-11" class="level4">
 <h4 class="anchored" data-anchor-id="question-11">Question 11</h4>
-<p>Create a data frame that contains the median and interquartile range for departure delays, grouped by carrier. Which carrier has the lowest typical departure delay? Which one has the least variable departure delays?</p>
+<p>Create a plot that captures the relationship of average speed vs.&nbsp;distance and describe the shape and structure that you see. What phenomena related to taking flights from the Bay Area might explain this structure?</p>
 </section>
 <section id="question-12" class="level4">
 <h4 class="anchored" data-anchor-id="question-12">Question 12</h4>
-<p>Create a plot that captures the relationship of average speed vs.&nbsp;distance and describe the shape and structure that you see. What phenomena related to taking flights from the Bay Area might explain this structure?</p>
+<p>For flights leaving SFO, which month has the highest mean departure delay? What about the highest median departure delay? Which of these measures is more useful to know when deciding which month(s) to avoid flying if you particularly dislike flights that are severely delayed?</p>
 </section>
 <section id="question-13" class="level4">
 <h4 class="anchored" data-anchor-id="question-13">Question 13</h4>
-<p>For flights leaving SFO, which month has the highest mean departure delay? What about the highest median departure delay? Which of these measures is more useful to know when deciding which month(s) to avoid flying if you particularly dislike flights that are severely delayed?</p>
+<p>Each individual airplane can be uniquely identified by its tailnumber in the same way that US citizens can be by their social security numbers. Which airplane flew the farthest in total during this year for which we have data? How many times around the planet does that translate to?</p>
 </section>
 <section id="question-14" class="level4">
 <h4 class="anchored" data-anchor-id="question-14">Question 14</h4>
-<p>Each individual airplane can be uniquely identified by its tailnumber in the same way that US citizens can be by their social security numbers. Which airplane flew the farthest in total during this year for which we have data? How many times around the planet does that translate to?</p>
+<p>What is the tailnumber of the fastest plane in the data set? What type of plane is it (google it!)? Be sure to be clear how you’re defining fastest.</p>
 </section>
 <section id="question-15" class="level4">
 <h4 class="anchored" data-anchor-id="question-15">Question 15</h4>
-<p>What is the tailnumber of the fastest plane in the data set? What type of plane is it (google it!)? Be sure to be clear how you’re defining fastest.</p>
-</section>
-<section id="question-16" class="level4">
-<h4 class="anchored" data-anchor-id="question-16">Question 16</h4>
 <p>The plot below shows the relationship between the number of flights going out of SFO and the average departure delay. It illustrates the hypothesis that more flights on a given day would lead to a more congested airport which would lead to greater delays on average. Each point represents single day in 2020; there are 366 of them on the plot. Please form a single pipeline that will create this plot, starting with the raw data set.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -252,27 +248,27 @@ gtag('config', 'G-WP7F4QKDC8', { 'anonymize_ip': true});
 </figure>
 </div>
 <!-- 
-#### Question 17
+#### Question 16
 
 Create a plot to illustrate the association between departure delay and arrival delay. Summarize the linear relationship by calculating the correlation coefficient and by fitting a linear model and showing the value of those statistics (this requires two multiple pipelines). For an optional challenge, use `geom_smooth()` to superimpose the linear model on the scatter plot.
 
 
-#### Question 18
+#### Question 17
 
 Which flight has the longest arrival delay given its departure delay?
 
 
-#### Question 19
+#### Question 18
 
 Fit a multiple linear regression model that explains arrival delay using departure delay and the distance of the flight and print out the coefficients (the intercept and two slopes). Speculate as to why the *sign* (positive or negative) of the distance coefficient is what it is.
 
 
-#### Question 20
+#### Question 19
 
 On average, which carrier's flights had the smallest arrival delay given their departure delay and distance? 
 
 
-#### Question 21
+#### Question 20
 
 Can we compare the regression coefficients for departure delay and distance to understand which has the stronger relationship? Why or why not?
 

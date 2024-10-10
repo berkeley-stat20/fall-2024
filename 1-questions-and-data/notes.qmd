@@ -1,5 +1,0 @@
----
-title: "Questions and Data"
-format: stat20notes-html
----
-

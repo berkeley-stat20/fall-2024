@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.9">
+<meta name="generator" content="quarto-1.6.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,16 +30,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../3-generalization/04-random-variables/notes.html" rel="next">
+<link href="../../3-generalization/02-computing-probs/notes.html" rel="prev">
 <link href="../../assets/stat20-hex.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-79bb3942e891885f9f7af119cd221462.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-7918959cedd5fe557ad0eab3bc4a96a3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-7b6855b20a600ea9b2bbb9bbd6e9f584.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/stat20notes-1.0.0/stat20notes.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -118,7 +120,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -144,7 +146,7 @@ window.Quarto = {
 <span class="menu-text">Office Hours</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../notes.html"> 
+    <a class="nav-link active" href="../../notes.html" aria-current="page"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
@@ -169,10 +171,172 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Probability Distributions</h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Questions and Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1-questions-and-data/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questions and Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1-questions-and-data/01-understanding-the-world/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Understanding the World with Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1-questions-and-data/02-taxonomy-of-data/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Taxonomy of Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Summarization</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/01-summarizing-categorical-data/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing Categorical Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/02-summarizing-numerical-data/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing Numerical Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/03-a-grammar-of-graphics/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A Grammar of Graphics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/04-conditioning/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conditioning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/05-summarizing-associations/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing Numerical Associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/05-summarizing-associations/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing Numerical Associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2-summarizing-data/06-multiple-linear-regression/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Linear Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Generalization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3-generalization/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generalization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3-generalization/01-prob-foundations/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3-generalization/02-computing-probs/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing Probabilities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3-generalization/03-probability-dsns/notes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Probability Distributions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Causation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -213,7 +377,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Probability Distributions</h1>
+<h1 class="title d-none d-lg-block">Probability Distributions</h1>
 <p class="subtitle lead">Some special distributions and visualizing probabilities</p>
 </div>
 
@@ -282,11 +446,13 @@ How might we visualize this distribution? One way might be to represent the outc
 
 
 
+
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-2-1.png){fig-align='center' width=384}
 :::
 :::
+
 
 
 -->
@@ -313,11 +479,13 @@ You see two plots below: the top (purple) figure is a bar graph showing the dist
 
 
 
+
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-4-1.png){fig-align='center' width=576}
 :::
 :::
+
 
 
 
@@ -700,6 +868,7 @@ If we use a box of tickets to describe these random variables, both distribution
 Suppose we want to represent the rolling of a pair of dice and summing the spots using a box with appropriately marked tickets. We could create a vector that has each possible value.
 
 
+
 ::: {.cell}
 ::: {.cell-output .cell-output-stdout}
 
@@ -712,10 +881,12 @@ Suppose we want to represent the rolling of a pair of dice and summing the spots
 :::
 
 
+
  
 The problem with the vector `sum_dice` is that the probabilities are not represented correctly. For example, there is only one way to get a sum of $2$, but $6$ ways to get $7$. If we want to represent this action of rolling a pair of dice and taking the sum of spots, we have to use a box in which values will be repeated to reflect their probability. How would you use `rep()` to create a vector representing a box with $36$ tickets, each representing a possible sum, and with the tickets repeated so the probabilities are correct. For example, since the sum $7$ can be obtained in $6$ ways (by rolling a $1$ and a $6$ or a $6$ and a $1$; a $2$ and a $5$ or a $5$ and a $2$ and so on), we need __six__ tickets marked $7$, so that the chance of drawing a $7$ is $6/36$.
 
 <details> <summary> Check your answer </summary>
+
 
 
 ::: {.cell}
@@ -729,6 +900,7 @@ The problem with the vector `sum_dice` is that the probabilities are not represe
 
 :::
 :::
+
 
 
 </details>
@@ -750,6 +922,7 @@ Let's simulate rolling a pair of dice and summing the spots using `sample()`. Re
 
 
 
+
 ::: {.cell}
 ::: {.cell-output .cell-output-stdout}
 
@@ -763,7 +936,9 @@ Let's simulate rolling a pair of dice and summing the spots using `sample()`. Re
 
 
 
+
 Now I want to do this task 10 times. That is, each time I sample twice (to simulate rolling a pair of dice), and then sum the sample values. I should get 10 sums (so the numbers will be between $2$ and $12$).
+
 
 
 
@@ -779,9 +954,11 @@ Now I want to do this task 10 times. That is, each time I sample twice (to simul
 :::
 
 
+
 -->
 <!---
 We could replicate as many times as we like, so let's repeat the process 1000 times, and see how many of each value we get. We can use `count()` to tally the values, and then compute the proportions to compare the values with the true probability.
+
 
 
 
@@ -810,6 +987,7 @@ We could replicate as many times as we like, so let's repeat the process 1000 ti
 :::
 
 
+
 -->
 </section>
 <section id="geom_col-plotting-with-probability" class="level4">
@@ -823,9 +1001,11 @@ In order to use `ggplot()`, we need to make a data frame with the information ab
 
 
 
+
 ::: {.cell layout-align="center"}
 
 :::
+
 
 
 
@@ -834,11 +1014,13 @@ Once this is done, we can make our probability histogram. Note that since the ba
 
 
 
+
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-12-1.png){fig-align='center' width=384}
 :::
 :::
+
 
 
 -->
@@ -965,6 +1147,7 @@ What about if we roll the die 60 times? We should see each face *about* ten time
 
 
 
+
 ::: {.cell}
 ::: {.cell-output .cell-output-stdout}
 
@@ -986,7 +1169,9 @@ What about if we roll the die 60 times? We should see each face *about* ten time
 
 
 
+
 Not so great, but let's try rolling the die 600 times:
+
 
 
 ::: {.cell}
@@ -1009,6 +1194,7 @@ Not so great, but let's try rolling the die 600 times:
 :::
 
 
+
 --->
 <!---
 
@@ -1017,6 +1203,7 @@ Not so great, but let's try rolling the die 600 times:
 We can also visualize the results of this code. As we have been doing, we will draw the *probability* distribution in gold, which shows the probabilities of each possible outcome (the probability distribution), and compare it to the *empirical* distributions in blue (plotting the *data* distribution, not the probability distribution) of the results of rolling the die $60, 600$, and $6000$ times. Note that the probability distribution is *theoretical*, where the area of the bars represent probabilities, and the total area of the bars is $1$. 
 
 Note: in the code below, in order to display all 4 histograms in a single plot we are using a package called `patchwork`. We save each plot as `p1`, `p2` etc, and then put them all together in the configuration we want. The code below seems long, but it is really repeating the same code for $60$ rolls, and then for $600$ rolls etc.
+
 
 
 
@@ -1030,7 +1217,9 @@ Note: in the code below, in order to display all 4 histograms in a single plot w
 
 
 
+
 The important takeaway here is that we have a *theoretical* probability distribution of the outcomes, and we have what actually happens when we perform the experiment over and over. Eventually, the empirical distribution begins to look like the theoretical distribution. 
+
 
 
 
@@ -1048,9 +1237,11 @@ The important takeaway here is that we have a *theoretical* probability distribu
 
 
 
+
 We can use `sample()` to *estimate* the chance of a particular outcome  when we aren't sure of what that chance might be. We would do this by repeatedly sampling from the "box" with replacement (many times), then computing the proportion of times we drew each ticket. For example, say we consider our first example (the simple box with tickets ), and want to estimate the chance of each ticket.
 
 In the code below, we use `sample()` along with the new function introduced earlier: `replicate()`. Also note that `geom_bar()` is set to display proportions rather than counts.
+
 
 
 
@@ -1062,12 +1253,14 @@ In the code below, we use `sample()` along with the new function introduced earl
 
 
 
+
 We see that the *estimated* chance of drawing a $\fbox{2}$ is about 0.4, and this is about twice the estimated chance of drawing any other ticket. Of course, we knew this already, without needing to code it in R. Let's think of a more complicated situation: 
 
 What if we wanted to wanted to draw _five_ tickets with replacement from this box, and sum the draws? What would be the possible values that we would get? What could their chances be? We can visualize this in R by simulating drawing five tickets from the box, with replacement, replicating this process many times, and then plotting the empirical histogram:
 
 
 :::{.content-visible when-format="html"}
+
 
 
 ::: {.cell layout-align="center"}
@@ -1077,9 +1270,11 @@ What if we wanted to wanted to draw _five_ tickets with replacement from this bo
 :::
 
 
+
 :::
 
 :::{.content-hidden when-format="html"}
+
 
 
 ::: {.cell layout-align="center"}
@@ -1087,6 +1282,7 @@ What if we wanted to wanted to draw _five_ tickets with replacement from this bo
 ![](notes_files/figure-html/unnamed-chunk-30-1.png){fig-align='center' width=384}
 :::
 :::
+
 
 
 :::
@@ -1099,6 +1295,7 @@ We can see that there is a lot more variation in the values taken by the sum of 
 We can estimate the chances of various outcomes related to coin tossing, using sampling from a box. 
 
 Suppose, for example, that we would like to figure out the chance of exactly 2 heads if we toss a coin 4 times. Think about how you would use the functions `sample()` and `replicate()` to model this, using the 0-1 box we defined earlier, for tossing a coin.
+
 
 
 
@@ -1117,9 +1314,11 @@ Suppose, for example, that we would like to figure out the chance of exactly 2 h
 
 
 
+
 #### Empirical histogram for rolling a pair of dice and summing the spots
 
 We have seen the probability histogram for rolling a pair of dice and summing the spots. Now let's use `replicate()` to simulate this action and see if the histogram looks like what we drew.
+
 
 
 
@@ -1132,11 +1331,13 @@ We have seen the probability histogram for rolling a pair of dice and summing th
 
 
 
+
 <!--## Simulating De Méré's dice games
 
 You can run the simulations yourself using the code below. Copy and paste it into RStudio and play around with it.
 
 First, lets recall the two vectors we defined that represent the outcome spaces of rolling a die once and rolling a pair of dice once and summing the spots, respectively. 
+
 
 
 
@@ -1146,7 +1347,9 @@ First, lets recall the two vectors we defined that represent the outcome spaces 
 
 
 
+
 Now let's set up the first game, and repeat it 1000 times. You can change the number of simulations below.
+
 
 
 
@@ -1179,9 +1382,11 @@ simulation 6      1      2      3      6
 
 
 
+
 Let's repeat the simulation for the second game, in which we roll a pair of dice 24 times and record a win if at least one double six is rolled. 
 
 Note that the number of simulations is defined above.
+
 
 
 
@@ -1196,6 +1401,7 @@ Note that the number of simulations is defined above.
 
 :::
 :::
+
 
 
 -->
@@ -1644,6 +1850,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../3-generalization/02-computing-probs/notes.html" class="pagination-link" aria-label="Computing Probabilities">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Computing Probabilities</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../3-generalization/04-random-variables/notes.html" class="pagination-link" aria-label="Random Variables">
+        <span class="nav-page-text">Random Variables</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

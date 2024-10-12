@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/index.html",
+    "items": []
+  },
+  {
     "listing": "/assignments.html",
     "items": [
       "/2-summarizing-data/labs/class-survey/slides.html",
@@ -18,9 +22,5 @@
       "/2-summarizing-data/02-summarizing-numerical-data/ws.pdf",
       "/1-questions-and-data/02-taxonomy-of-data/ws.pdf"
     ]
-  },
-  {
-    "listing": "/index.html",
-    "items": []
   }
 ]

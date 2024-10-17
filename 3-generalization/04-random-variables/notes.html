@@ -633,6 +633,13 @@ In `R` we can use a special function to compute the binomial probabilities $f(k)
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+1 - dbinom(0, size = 10, prob = 0.35) - 
+  dbinom(1, size = 10, prob = 0.35) - 
+  dbinom(2, size = 10, prob = 0.35)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -664,6 +671,12 @@ Check your answer
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+# P(X=5)
+dbinom(x = 5, size = 10, prob = 0.4)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -673,6 +686,13 @@ Check your answer
 
 :::
 
+```{.r .cell-code  code-fold="false"}
+# P(X <= 5)
+dbinom(x = 0, size = 10, prob = 0.4) + dbinom(x = 1, size = 10, prob = 0.4) + 
+  dbinom(x = 2, size = 10, prob = 0.4) + dbinom(x = 3, size = 10, prob = 0.4) +
+  dbinom(x = 4, size = 10, prob = 0.4) + dbinom(x = 5, size = 10, prob = 0.4)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -681,6 +701,13 @@ Check your answer
 
 
 :::
+
+```{.r .cell-code  code-fold="false"}
+# P(3 <= X <= 8)
+dbinom(x = 3, size = 10, prob = 0.4) + dbinom(x = 4, size = 10, prob = 0.4) + 
+  dbinom(x = 5, size = 10, prob = 0.4) + dbinom(x = 6, size = 10, prob = 0.4) +
+  dbinom(x = 7, size = 10, prob = 0.4) + dbinom(x = 8, size = 10, prob = 0.4)
+```
 
 ::: {.cell-output .cell-output-stdout}
 
@@ -713,6 +740,11 @@ Check your answer
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+dhyper(0, 500, 500, 10)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -732,6 +764,11 @@ Note that the function used in `R` to compute the binomial coefficient $\binom{n
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+choose(500, 0)*choose(500, 10)/choose(1000, 10)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -786,6 +823,14 @@ P(X = 0) = \binom{10}{0}\times\left(\frac{1}{2}\right)^0\times\left(\frac{1}{2}\
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+# n = 10
+# p = 0.5
+
+dbinom(0, 10, 0.5)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -884,12 +929,14 @@ Check your answer
 <h4 class="anchored" data-anchor-id="factorial-and-choose"><code>factorial()</code> and <code>choose()</code></h4>
 <p>The function used to compute the binomial coefficient <span class="math inline">\(\binom{n}{k}\)</span> is <code>choose(n,k)</code>, while the function to compute <span class="math inline">\(n!\)</span> is <code>factorial(n)</code>. Here are a couple of examples:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">" 5! is equal to "</span>, <span class="fu">factorial</span>(<span class="dv">5</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 5! is equal to  120</code></pre>
 </div>
 </div>
 <p><code>cat()</code> prints whatever is in the <code>()</code>.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">choose</span>(<span class="dv">4</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -938,18 +985,29 @@ Check your answer
 <h4 class="anchored" data-anchor-id="example">Example</h4>
 <p>Suppose we consider <span class="math inline">\(n = 3\)</span>, <span class="math inline">\(p= 0.5\)</span>, that is, <span class="math inline">\(X\)</span> is the number of successes in 3 independent Bernoulli trials.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probability that we see exactly 1 success = f(1)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.375</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probability that we see at most 1 success = F(1) = f(0) + f(1)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check f(0) + f(1)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate a sample of size 5 where each element in sample </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># represents number of successes in 3 trials (like number of heads in 3 tosses)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 1 2 1 2</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if we want to generate a sequence of 10 tosses of a fair coin, for example:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0 1 1 0 1 1 0 1 0 0</code></pre>
 </div>
@@ -968,21 +1026,37 @@ Check your answer
 Check your answer
 </summary>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(X = 5)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2006581</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(X = 5)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="fl">0.4</span>) <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="dv">4</span>, <span class="dv">10</span>, <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2006581</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(X &lt;= 5)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8337614</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(X &lt;= 5)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8337614</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(3 &lt;= X &lt;= 8)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">8</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8310325</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(3 &lt;= X &lt;= 8)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">8</span>, <span class="dv">10</span>, <span class="fl">0.4</span>) <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8310325</code></pre>
 </div>
@@ -1042,15 +1116,26 @@ Check your answer
 <h4 class="anchored" data-anchor-id="example-1">Example</h4>
 <p>Suppose we consider <span class="math inline">\(N = 10, G  = 6, n = 3\)</span>, that is, <span class="math inline">\(X\)</span> is the number of successes in 3 draws without replacement from a box that has 6 tickets marked <span class="math inline">\(\fbox{1}\)</span> and 4 tickets marked <span class="math inline">\(\fbox{0}\)</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probability that we see exactly 1 success = f(1)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">k =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can compute this by hand as well to check. </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># probability that we see at most 1 success = F(1) = f(0) + f(1)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">phyper</span>(<span class="at">q =</span> <span class="dv">1</span>, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">k =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3333333</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check f(0) + f(1)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">k =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">k =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3333333</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate a sample of size 5 where each element in sample </span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># represents number of successes in 3 draws</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rhyper</span>(<span class="at">nn =</span> <span class="dv">5</span>, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">k =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 3 2 1 2</code></pre>
 </div>
@@ -1094,18 +1179,29 @@ Check your answer
 <h4 class="anchored" data-anchor-id="example-2">Example</h4>
 <p>Suppose we consider <span class="math inline">\(\lambda = 1\)</span>, that is <span class="math inline">\(X \sim\)</span> Poisson<span class="math inline">\((\lambda)\)</span>.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probability that we see exactly 1 event = f(1)</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">lambda =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3678794</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check f(1) = exp(-lambda)*lambda = exp(-1)*1</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3678794</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probability that we see at most 1 success = F(1) = f(0) + f(1)</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="at">q =</span> <span class="dv">1</span>,<span class="at">lambda =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7357589</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check f(0) + f(1)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">lambda =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">lambda =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7357589</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate a sample of size 5 where each element in sample </span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># represents a random count from the Poisson(1) distribution</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">lambda =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 1 1 0 2</code></pre>
 </div>
@@ -1127,6 +1223,37 @@ We can also simulate the probability distribution by drawing over and over again
 
 
 ::: {.cell}
+
+```{.r .cell-code}
+die_10 <- seq(from = 1, to = 10, by = 1)
+prob_10 <- rep(0.1, 10)
+
+set.seed(12345)
+
+n_rolls <- 10^5
+
+rolls <- sample(die_10, n_rolls, replace = TRUE)
+
+p1 <- data.frame(die_10) |> 
+  mutate(prob_10 = prob_10) |>
+  ggplot(aes(x = factor(die_10), y = prob_10)) +
+  geom_col(fill = "goldenrod2", width = 0.98) + 
+   ylab("probability") + 
+   xlab(" number of spots") + 
+  ggtitle("Outcomes from rolling a ten sided die:\n probability distribution")
+  
+
+p2 <- data.frame(rolls) |> 
+  ggplot(aes(x=factor(rolls))) + 
+  geom_bar(aes(y = after_stat(count)/sum(after_stat(count))), fill="blue", width = 0.98) + 
+  ylab("proportion of draws") + 
+  xlab("ticket drawn") + 
+  ggtitle("Outcomes from rolling a ten sided die:\n empirical distribution") 
+ 
+
+p1 + p2
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-15-1.png){width=960}
 :::
@@ -1160,6 +1287,44 @@ Let $X \sim Bin(30, 0.5)$. We can simulate the values of this random variable by
 
 
 ::: {.cell}
+
+```{.r .cell-code}
+box <- c(0,1)
+binom_30 <- seq(from = 0, to = 30, by = 1)
+prob_30 <- round(dbinom(binom_30, size = 30, prob = 0.5), 3)
+
+set.seed(12345)
+
+n_sims <- 10^4
+
+draws <- replicate(n_sims, sum(sample(box, 30, replace = TRUE)))
+
+p1 <- data.frame(binom_30) |> 
+  mutate(prob_30 = prob_30) |>
+  ggplot(aes(x = factor(binom_30), y = prob_30)) +
+  geom_col(fill = "goldenrod2", width = 0.98, color = "white") + 
+   ylab("probability") + 
+   xlab(" number of successes") + 
+  ggtitle("Probabilities for the binomial random variable \n n = 30, p = 0.5") +
+  theme_bw()
+  
+
+fac_30 <- factor(binom_30, levels = 0:30)
+
+p2 <- data.frame(draws) |> 
+  ggplot(aes(x=draws)) + 
+  geom_bar(aes(y=..prop..), fill="blue", width = 0.98, color = "white") + 
+  ylab("proportion of draws") + 
+  xlab("sum of draws") + 
+  ggtitle("Empirical distribution for random numbers generated \n
+          from the Bin(30, 0.5) distribution")  +
+  theme_bw() +
+  scale_x_discrete(limits = factor(seq(0,30)), labels = fac_30, drop = FALSE)
+  
+
+p1 + p2
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-17-1.png){width=960}
 :::

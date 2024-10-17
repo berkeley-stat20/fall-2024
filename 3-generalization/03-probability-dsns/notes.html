@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -876,6 +910,12 @@ Suppose we want to represent the rolling of a pair of dice and summing the spots
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+sum_dice <- seq(from = 2, by = 1, to = 12)
+sum_dice
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -896,6 +936,15 @@ The problem with the vector `sum_dice` is that the probabilities are not represe
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+sum_dice <- seq(from = 2, by = 1, to = 12)
+
+sum_dice_1 <- rep(sum_dice, 
+                  times = c(1,2, 3, 4, 5, 6, 5, 4, 3, 2, 1))
+sum_dice_1
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -930,6 +979,13 @@ Let's simulate rolling a pair of dice and summing the spots using `sample()`. Re
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+set.seed(214)
+die <- seq(from = 1, to = 6)
+sum(sample(die, size = 2, replace = TRUE))
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -949,6 +1005,12 @@ Now I want to do this task 10 times. That is, each time I sample twice (to simul
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+set.seed(214)
+replicate(n=10, expr = sum(sample(die, size = 2, replace = TRUE)))
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -969,6 +1031,18 @@ We could replicate as many times as we like, so let's repeat the process 1000 ti
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+set.seed(214)
+x <- replicate(n=1000, expr = sum(sample(die, size = 2, replace = TRUE)))
+x |> 
+data.frame() |>
+ mutate(sums = factor(x)) |>
+  group_by(sums) |>
+  summarise(prop = n()/1000) |> 
+  mutate(true_prob = c(1,2,3,4,5,6,5,4,3,2,1)/36)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -1010,6 +1084,11 @@ In order to use `ggplot()`, we need to make a data frame with the information ab
 
 ::: {.cell layout-align="center"}
 
+```{.r .cell-code  code-fold="false"}
+x <- c(0,1)
+px <- c(1/3, 2/3)
+bern_df <- data.frame(x = x, prob_x = px) 
+```
 :::
 
 
@@ -1022,6 +1101,16 @@ Once this is done, we can make our probability histogram. Note that since the ba
 
 
 ::: {.cell layout-align="center"}
+
+```{.r .cell-code  code-fold="false"}
+bern_df |>
+  ggplot(mapping = aes(x=factor(x), y=prob_x)) +
+  geom_col() +
+  labs(x="value",
+       y = "probability",
+       title = "The Bernoulli(2/3) distribution")
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-12-1.png){fig-align='center' width=384}
 :::
@@ -1048,18 +1137,24 @@ Code along
 </div>
 </div>
 <p>Suppose we want to simulate the task of rolling a pair of die and summing the two spots. We can accomplish this task and examine our results using the functions we have just introduced. First, we will make a vector representing a fair, six-sided die.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>die <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">6</span>, <span class="at">by =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="obtaining-a-sum" class="level4">
 <h4 class="anchored" data-anchor-id="obtaining-a-sum">Obtaining a sum</h4>
 <section id="method-1---replicate" class="level5">
 <h5 class="anchored" data-anchor-id="method-1---replicate">Method 1 - <code>replicate()</code></h5>
 <p>We can use the <code>sample()</code> function to roll the die twice; this will output a vector with two die numbers. Then, we can take the sum of this vector by nesting the call to <code>sample()</code> inside of sum.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">214</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sample</span>(die, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
 </div>
 <p>If we would like to repeat this action many times (for instance, in a game of Monopoly, each player has to roll two dice on their turn and sum the spots), the <code>replicate()</code> function will come in handy. In the following line of code, we obtain 10 sums.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="at">n=</span> <span class="dv">10</span>, <span class="at">expr =</span> <span class="fu">sum</span>(<span class="fu">sample</span>(die, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 11  8  8 12  5  7  8  7 10  7</code></pre>
 </div>
@@ -1069,6 +1164,10 @@ Code along
 <h5 class="anchored" data-anchor-id="method-2---rep">Method 2 - <code>rep()</code></h5>
 <p>We could also roll the die in advance and then sample from the possible sums: 2 through 12. However, when rolling the two die, there is only one way to get a sum of <span class="math inline">\(2\)</span> (both dice need to be one), but six ways to get a sum of <span class="math inline">\(7\)</span>. This shows that if we want to represent this action of rolling a pair of dice and taking the sum of spots, we have to use a box in which values will be repeated to reflect their probability. We can use the <code>times</code> argument of the <code>rep()</code> function to make such a box. The number <span class="math inline">\(2\)</span> is repeated once, the number <span class="math inline">\(3\)</span> is repeated twice, and so on until the number <span class="math inline">\(7\)</span> is repeated six times. We can then sample once from this box.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>possible_sums <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">by =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">12</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>correct_sums <span class="ot">&lt;-</span> <span class="fu">rep</span>(possible_sums, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>correct_sums</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  2  3  3  4  4  4  5  5  5  5  6  6  6  6  6  7  7  7  7  7  7  8  8  8  8
 [26]  8  9  9  9  9 10 10 10 11 11 12</code></pre>
@@ -1076,6 +1175,7 @@ Code along
 </div>
 <p>To get 10 sums as we did before, we just need to sample with ten times with replacement from this new box, <code>correct_sums</code>.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> correct_sums, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 7 4 8 9 2 7 4 7 6 8</code></pre>
 </div>
@@ -1088,8 +1188,18 @@ Code along
 <section id="making-a-probability-histogram-with-geom_col" class="level4">
 <h4 class="anchored" data-anchor-id="making-a-probability-histogram-with-geom_col">Making a probability histogram with <code>geom_col()</code></h4>
 <p>First, let’s create a vector with the probabilities associated with each possible that can be obtained from rolling two dice. We are taking these probabilities from the drawn probability histogram earlier in the notes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>prob_sums <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>)<span class="sc">/</span><span class="dv">36</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Now, using the above and the <code>possible_sums</code> vector from before, we can make a data frame with the information about the probability distribution and create a probability histogram, which in turn can be used to make a plot with <code>geom_col()</code>.</p>
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>prob_hist <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(possible_sums, prob_sums) <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(possible_sums),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> prob_sums)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"goldenrod"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"sum value"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"probability"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>prob_hist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1104,6 +1214,16 @@ Code along
 <h4 class="anchored" data-anchor-id="performing-a-simulation-and-making-an-empirical-histogram">Performing a simulation and making an empirical histogram</h4>
 <p>Let’s simulate rolling two die and and computing a sum fifty times Then, we can make a data frame out of our results and find the total amount of rolls, grouped by face. This can be done with the <code>n()</code> summary function– and if we divide by 50, we can get the sample proportions of each sum.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">214</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n=</span> <span class="dv">50</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expr =</span> <span class="fu">sum</span>(<span class="fu">sample</span>(die, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>empirical <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(results) <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(results) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">props =</span> <span class="fu">n</span>()<span class="sc">/</span><span class="dv">50</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>empirical</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 2
    results props
@@ -1123,6 +1243,13 @@ Code along
 </div>
 <p>Now, we can construct an empirical histogram using the <code>empirical</code> data frame.</p>
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>emp_50 <span class="ot">&lt;-</span> empirical <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(results),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> props)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"sum value"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"sample proportion"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>emp_50</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1136,6 +1263,8 @@ Code along
 <h4 class="anchored" data-anchor-id="comparing-our-results-to-the-truth">Comparing our results to the truth</h4>
 <p>You may have wondered why we bothered to save the plot objects. The reason is that we can use a nifty <a href="https://patchwork.data-imaginist.com/articles/patchwork.html">library called <code>patchwork</code></a> which will help us to more easily visualize multiple plots at once by using mathematical and logical syntax. For instance, using <code>+</code> will put plots side by side.</p>
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>prob_hist <span class="sc">+</span> emp_50</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1215,6 +1344,64 @@ Note: in the code below, in order to display all 4 histograms in a single plot w
 
 
 ::: {.cell layout-align="center"}
+
+```{.r .cell-code}
+prob_die <- rep(1/6, 6)
+set.seed(12345)
+
+p1 <- data.frame(die) |> 
+  ggplot(aes(x = factor(die), y=prob_die)) +
+  geom_col(width = 0.98, fill = "goldenrod2") +
+  xlab("number of spots") +
+  ylab("probability") +
+  ggtitle("Probability distribution of the \n outcome of a die roll") +
+  lims(y = c(0, .35))
+
+roll_60 <- sample(die, 60, replace = TRUE)
+roll_60 <- data.frame(table(roll_60)) |> 
+  mutate(prop_rolls = Freq/60)
+
+
+p2 <- roll_60 |>
+  ggplot(aes(x = factor(die), y= prop_rolls)) +
+  geom_col(width = 0.98, fill = "blue") +
+  xlab("number of spots") +
+  ylab("proportion of rolls") +
+  ggtitle("Empirical distribution for \n 60 rolls") +
+  lims(y = c(0, .35))
+
+
+roll_600 <- sample(die, 600, replace = TRUE)
+
+roll_600 <- data.frame(table(roll_600)) |>
+    mutate(prop_rolls = Freq/600)
+
+p3 <- roll_600 |>
+  ggplot(aes(x = factor(die), y= prop_rolls)) +
+  geom_col(width = 0.98, fill = "blue") +
+  xlab("number of spots") +
+  ylab("proportion of rolls") +
+  ggtitle("Empirical distribution for \n 600 rolls") +
+  lims(y = c(0, .35))
+  
+
+roll_6000 <- sample(die, 6000, replace = TRUE)
+
+roll_6000 <- data.frame(table(roll_6000)) |>
+    mutate(prop_rolls = Freq/6000)
+
+
+p4 <- data.frame(roll_6000) |>
+  ggplot(aes(x = factor(die), y=prop_rolls)) +
+  geom_col(width = 0.98, fill = "blue") +
+  xlab("number of spots") +
+  ylab("proportion of rolls") +
+  ggtitle("Empirical distribution for \n 6000 rolls") +
+  lims(y = c(0, .35))
+
+(p1 + p2)/(p3+p4)
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-26-1.png){fig-align='center' width=576}
 :::
@@ -1231,6 +1418,13 @@ The important takeaway here is that we have a *theoretical* probability distribu
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+set.seed(12345)
+box <- c(1, 2, 2, 3, 4)
+sample(box,1)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -1252,6 +1446,17 @@ In the code below, we use `sample()` along with the new function introduced earl
 
 
 ::: {.cell layout-align="center"}
+
+```{.r .cell-code  code-fold="false"}
+set.seed(12345)
+box <- c(1, 2, 2, 3, 4)
+draws <- replicate(2000, sample(box, 1, replace = TRUE))
+ggplot(data.frame(draws), aes(x=draws)) + 
+  geom_bar(aes(y=after_stat(prop)), fill="blue", width = 0.98) + 
+  ylab("proportion of draws") + 
+  xlab("ticket drawn")
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-28-1.png){fig-align='center' width=384}
 :::
@@ -1270,6 +1475,17 @@ What if we wanted to wanted to draw _five_ tickets with replacement from this bo
 
 
 ::: {.cell layout-align="center"}
+
+```{.r .cell-code}
+box <- c(1, 2, 2, 3, 4)
+draws <- replicate(5000, sum(sample(box, size = 5, replace = TRUE)))
+ggplot(data.frame(draws), aes(x=draws)) + 
+  geom_bar(aes(y=..prop..), fill="blue", width = 0.98) + 
+  ylab("proportion") + 
+  xlab("sum of draws") + 
+  scale_x_continuous(breaks = seq(min(draws), max(draws), by = 1))
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-29-1.png){fig-align='center' width=384}
 :::
@@ -1306,6 +1522,16 @@ Suppose, for example, that we would like to figure out the chance of exactly 2 h
 
 
 ::: {.cell}
+
+```{.r .cell-code}
+coin <- c(0, 1) 
+x  <- replicate(50000, sum(sample(coin, 4, replace = TRUE)))
+x |>
+  data.frame() |> 
+  mutate(two_heads = x==2) |> #create a column that is TRUE if the 4 tosses had 2 H
+  summarise(prop_two_heads = mean(two_heads))
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -1329,6 +1555,18 @@ We have seen the probability histogram for rolling a pair of dice and summing th
 
 
 ::: {.cell layout-align="center"}
+
+```{.r .cell-code}
+sum_spots <- replicate(5000, sum(sample(die, size = 2, replace = TRUE)))
+sum_spots |>
+  data.frame() |>
+  ggplot(aes(x=sum_spots)) + 
+  geom_bar(aes(y = after_stat(prop)), fill="blue", width = 0.98) + 
+  ylab("proportion") + 
+  xlab("sum of two draws") +
+  scale_x_continuous(breaks = seq(min(sum_spots), max(sum_spots), by = 1))
+```
+
 ::: {.cell-output-display}
 ![](notes_files/figure-html/unnamed-chunk-32-1.png){fig-align='center' width=384}
 :::
@@ -1349,6 +1587,16 @@ First, lets recall the two vectors we defined that represent the outcome spaces 
 
 ::: {.cell}
 
+```{.r .cell-code  code-fold="false"}
+die <- seq(from = 1, to = 6)
+
+sum_dice <- seq(from = 2, by = 1, to = 12)
+
+#now with correct frequencies
+
+sum_dice <- rep(sum_dice, 
+                  times = c(1,2, 3, 4, 5, 6, 5, 4, 3, 2, 1))
+```
 :::
 
 
@@ -1360,6 +1608,35 @@ Now let's set up the first game, and repeat it 1000 times. You can change the nu
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+##### de mere first game ############
+
+set.seed(123123) 
+# This ensures that each time we run this code, we will get the same results.
+
+num_simulations <- 1000 
+# specifying the number of simulations, or the number of times we will play
+
+# now we will play the game of rolling the die 4 times num_simulations times
+die_4 <- replicate(num_simulations, sample(die, 4, replace = TRUE)) 
+
+# the results of play are saved as a numerical array (a matrix), not a data frame
+# so we save it as a data frame, and transpose the rows and columns so each row is the 
+# result of one game
+die_4_df <- data.frame(t(die_4))
+
+# the next two lines of code are to make our data frame look better
+# and you can ignore them
+
+colnames(die_4_df) <- paste("roll", sep = " ", 1:4) 
+
+rownames(die_4_df) <- paste("simulation", sep = " ", 1:num_simulations)
+
+# let's take a look at our data frame
+head(die_4_df)
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -1374,6 +1651,15 @@ simulation 6      1      2      3      6
 
 
 :::
+
+```{.r .cell-code  code-fold="false"}
+# we will create a new column that checks, for each play (each row), if there is at least 
+# one 6. What will be the values in this column? Break the pipe and check!
+# Finally, we will compute the proportion of plays in which at least one 6 was rolled.
+die_4_df |> 
+  mutate(at_least_one_six = if_any(everything(), ~ . == 6)) |>
+  summarise(prop_wins = mean(at_least_one_six))
+```
 
 ::: {.cell-output .cell-output-stdout}
 
@@ -1397,6 +1683,40 @@ Note that the number of simulations is defined above.
 
 
 ::: {.cell}
+
+```{.r .cell-code  code-fold="false"}
+set.seed(123123)
+
+######## de mere second game  ############
+
+# define the outcome space from rolling a pair of dice listing all the outcomes, repeated
+# the number of ways that can occur. For example we can get 3 by rolling a 2, 1 or a 1, 2
+# note that we can get 12 in exactly 1 way, by rolling a double six.
+
+
+pair_dice <- c( 2, 3, 3, rep(4,3), rep(5,4), rep(6, 5), rep(7,6), 
+                rep(8,5), rep(9,4), rep(10,3), rep(11,2), 12)
+
+## note, not ideal because if see 7 don't know how we got it
+
+# play the game on repeat
+dice_24 <- replicate(num_simulations, sample(pair_dice, 24, replace = TRUE) )
+
+# make a data frame
+dice_24_df <-  data.frame(t(dice_24)) 
+
+# make the data frame easier to read
+colnames(dice_24_df) <- paste("roll", sep = " ", 1:24)
+rownames(dice_24_df) <- paste("simulation", sep = " ", 1:num_simulations)
+
+
+#head(dice_24_df)
+
+dice_24_df |> 
+  mutate(at_least_one_boxcars = if_any(everything(), ~ . == 12)) |>
+  summarise(prop_wins_game_2 = mean(at_least_one_boxcars))
+```
+
 ::: {.cell-output .cell-output-stdout}
 
 ```

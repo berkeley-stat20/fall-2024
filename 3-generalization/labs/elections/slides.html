@@ -7,7 +7,9 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6f7931aacaeb22aa467d6667c6f1725d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6f7931aacaeb22aa467d6667c6f1725d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../../../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.25">
 
   <meta name="author" content="STAT 20: Introduction to Probability and Statistics">
@@ -329,8 +331,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../../../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="Lab: Elections – Stat 20">
 <meta property="og:image" content="https://stat20.berkeley.edu/fall-2024/3-generalization/labs/elections/images/iran_green2.jpg">
 <meta property="og:site_name" content="Stat 20">
@@ -354,33 +354,7 @@ STAT 20: Introduction to Probability and Statistics
 </div>
 
 </section>
-<section>
-<section id="benfords-law---a-probability-distribution" class="title-slide slide level1 center">
-<h1>Benford’s Law - A probability distribution</h1>
-
-</section>
-<section id="benfords-law" class="slide level2">
-<h2>Benford’s Law</h2>
-<ul>
-<li>Many naturally occurring numerical variables have a recurring pattern in the distribution of the first digit.</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>First digits of stock prices, populations of cities, and election results have been observed to follow this pattern.</li>
-</ul>
-</div>
-</section>
-<section id="benfords-law-1" class="slide level2">
-<h2>Benford’s Law</h2>
-<p>Let <span class="math inline">\(X\)</span> be the first digit of a randomly selected number. <span class="math inline">\(X \sim Benfords()\)</span> if</p>
-<p><span class="math display">\[P(X = x) = \log_{10}\left(1 + 1/x \right)\]</span></p>
-</section></section>
-<section>
-<section id="iran-election" class="title-slide slide level1 center">
-<h1>2009 Iran Election</h1>
-
-</section>
-<section id="iran-election-1" class="slide level2">
+<section id="iran-election" class="slide level2">
 <h2>2009 Iran Election</h2>
 <div class="fragment">
 <div class="columns">
@@ -428,68 +402,59 @@ STAT 20: Introduction to Probability and Statistics
 <div class="bigadage">
 <p>Was the election fraudulent?</p>
 </div>
-<!--
+</section>
+<section>
+<section id="benfords-law" class="title-slide slide level1 center">
+<h1>Benford’s Law</h1>
 
-# Benford's Law
-
-## 
-
-:::poll
-What is the distribution of city/town populations in all cities and towns in California?
-:::
-
-. . .
-
-##
-
-:::poll
-What is the distribution of the **first digit** of city/town populations in all cities and towns in California?
-:::
-
-
-:::notes
-
-(these extensive notes were the instructions to TAs when facilitating this spring 2022)
-
-This first component can be done either during Berkeley time or at the start of class along with students. It depends on how long you expect the rest of the lesson to take and what you'd like to emphasize:
-[Write on the board the two "fundamental" distributions that we've covered so far: the Binomial and the Bernoulli. ?var:site-urllectures/14/binomial.html#/bernoulli-distributionl will give you a sense of the notation and layout that's used. Best to replicate each element of these slides, including the plots.] 
-
-It's reasonable to ask students to close their laptops for the first part of class.
-
-Ask students for a guess or two at the population of Berkeley.  Write on board then go to Wikipedia and get the true answer and correct the one(s) on the board. From there, follows links through Wikipedia to other towns and cities in California, building up a list of 10 city names and their populations (randomly picking a few of these links is a good method: https://en.wikipedia.org/wiki/Category:Incorporated_cities_and_towns_in_California). Structure this on the board as a data frame with two columns: city and population, and 10 rows.
-
-Ask students to sketch the distribution of two variables:
-1. What they expect the population variable to look like were they to collect the population of all the cities and towns in California.
-2. The distribution of the value of the first digit in the population counts of all of these town.
-This is probably best done think-pair share: give a couple minutes to for them to sketch silently, then ask them to share with a neighbor, then ask a pair to describe their distributions as you draw it on the board.
-
-Probing questions:
-1. Where does this variable sit in the Data Taxonomy?
-2. What is the range of possible values this variable can take?
-3. What geometry will you use?
-4. What shape/modality/center/spread would you expect to see?
-5. What labels belong on the axes?
-6. What is a good title for this plot?
-
-The first should be a histogram or density plot (boxplot is meh) that is heavily right skewed. The second should be a barchart on the integers 1-9, each one having decreasing probabilities.
-
-Write out Benford's Law in a similar way to the other named distributions and describe it as a distribution that we're going to try to use to describe vote counts. Start the calculation of E and V of Benford's Law just so that students can see what goes into each term of those sums (I'm actually not sure what the base_10 Benfords E and V are).
-
-:::
--->
-<!--
-
-
-
-::: {.cell layout-align="center"}
-::: {.cell-output-display}
-![](slides_files/figure-revealjs/unnamed-chunk-1-1.png){fig-align='center' width=960}
-:::
-:::
-
-
-
--->
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="poll">
+<p>What is the distribution of city/town populations in all cities and towns in California?</p>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="poll">
+<p>What is the distribution of the <strong>first digit</strong> of city/town populations in all cities and towns in California?</p>
+</div>
+<aside class="notes">
+<p>(these extensive notes were the instructions to TAs when facilitating this spring 2022)</p>
+<p>This first component can be done either during Berkeley time or at the start of class along with students. It depends on how long you expect the rest of the lesson to take and what you’d like to emphasize: [Write on the board the two “fundamental” distributions that we’ve covered so far: the Binomial and the Bernoulli. <strong>?var:site-url</strong>lectures/14/binomial.html#/bernoulli-distributionl will give you a sense of the notation and layout that’s used. Best to replicate each element of these slides, including the plots.]</p>
+<p>It’s reasonable to ask students to close their laptops for the first part of class.</p>
+<p>Ask students for a guess or two at the population of Berkeley. Write on board then go to Wikipedia and get the true answer and correct the one(s) on the board. From there, follows links through Wikipedia to other towns and cities in California, building up a list of 10 city names and their populations (randomly picking a few of these links is a good method: https://en.wikipedia.org/wiki/Category:Incorporated_cities_and_towns_in_California). Structure this on the board as a data frame with two columns: city and population, and 10 rows.</p>
+<p>Ask students to sketch the distribution of two variables: 1. What they expect the population variable to look like were they to collect the population of all the cities and towns in California. 2. The distribution of the value of the first digit in the population counts of all of these town. This is probably best done think-pair share: give a couple minutes to for them to sketch silently, then ask them to share with a neighbor, then ask a pair to describe their distributions as you draw it on the board.</p>
+<p>Probing questions: 1. Where does this variable sit in the Data Taxonomy? 2. What is the range of possible values this variable can take? 3. What geometry will you use? 4. What shape/modality/center/spread would you expect to see? 5. What labels belong on the axes? 6. What is a good title for this plot?</p>
+<p>The first should be a histogram or density plot (boxplot is meh) that is heavily right skewed. The second should be a barchart on the integers 1-9, each one having decreasing probabilities.</p>
+<p>Write out Benford’s Law in a similar way to the other named distributions and describe it as a distribution that we’re going to try to use to describe vote counts. Start the calculation of E and V of Benford’s Law just so that students can see what goes into each term of those sums (I’m actually not sure what the base_10 Benfords E and V are).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="benfords-law-1" class="slide level2">
+<h2>Benford’s Law</h2>
+<p>Let <span class="math inline">\(X\)</span> be the first digit of a randomly selected number. <span class="math inline">\(X \sim Benfords()\)</span> if</p>
+<p><span class="math display">\[P(X = x) = \log_{10}\left(1 + 1/x \right)\]</span></p>
 </section></section>
 <section>
 <section id="benfords-law-and-elections" class="title-slide slide level1 center">
@@ -603,16 +568,15 @@ So where to find the link to the raw data?
 -->
 </div>
 </section></section>
-<section id="lab-work-time" class="title-slide slide level1 center">
-<h1>Lab work time</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_339a27a2" data-update-every="1" tabindex="0" style="top:0;right:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">50</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<section id="section-3" class="title-slide slide level1 center" data-background-image="images/elections-screengrab.png" data-background-size="contains">
+<h1></h1>
+<div id="timer_82d90b1dbe6d8eb29fc23a289f1bebfa7b6970d7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">50</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 
 
 </section>

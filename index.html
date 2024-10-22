@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f98aead21e7fae527134dc6b981c4514.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-335526bec93c4ae38697ddc002d15b6f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,6 +85,34 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-schedule-listing'] = new List('listing-schedule-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-this-week-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-week','listing-unit','listing-days','listing-resources',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-week","listing-unit","listing-days","listing-resources"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-this-week-listing'] = new List('listing-this-week-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -222,6 +250,210 @@ window.Quarto = {
 <p><br>
 </p>
 <p><img src="assets/stat20-hex.png" class="img-fluid" alt="Hex logo of Stat 20 showing a golden bear." width="250"></p>
+</div>
+</div>
+<div id="listing-this-week-listing" class="quarto-listing quarto-listing-container-custom">
+
+<!-- Create each week -->
+<div class="this-week">
+<h4>This Week</h4>
+<div class="week-x-box">
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Oct 21</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Quiz 4</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create badges for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+    <div>
+    <span class="before-in-class">In class:</span><br>
+    
+      
+        
+          
+          
+          
+            <a href="./assets/quiz-slides.html" class="badge Slides-badge">Slides</a>
+          
+        
+      
+    
+    </div>
+  
+  <!-- ...docs listed directly under day item -->
+  
+  <!-- ...things that are due tomorrow -->
+  
+    <div>
+    <span class="before-in-class">Due tomorrow:</span><br>
+    
+      <ul class="assignment-list">
+      
+        <li>WSP 4</li>
+      
+      </ul>
+    
+    </div>
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Oct 22/23</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Expected Value and Variance</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create badges for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+    <div>
+    <span class="before-in-class">Before class:</span><br>
+    
+      
+        
+          
+          
+          
+            <a href="./3-generalization/05-ev-se/notes.html" class="badge Notes-badge">Notes</a>
+          
+        
+      
+    
+    </div>
+  
+  <!-- ...docs listed under in-class key -->
+  
+    <div>
+    <span class="before-in-class">In class:</span><br>
+    
+      
+        
+          
+          
+          
+            <a href="./3-generalization/05-ev-se/slides.html" class="badge Slides-badge">Slides</a>
+          
+        
+      
+        
+          
+          
+          
+            <a href="./3-generalization/05-ev-se/ws.pdf" class="badge WS-badge">WS</a>
+          
+        
+      
+        
+          
+          
+            
+          
+          
+            <a href="./3-generalization/labs/elections/slides.html" class="badge Lab: Slides-badge">Lab: Slides</a>
+          
+        
+      
+        
+          
+          
+            
+          
+          
+            <a href="./3-generalization/labs/elections/part-1.pdf" class="badge Lab: Part I-badge">Lab: Part I</a>
+          
+        
+      
+    
+    </div>
+  
+  <!-- ...docs listed directly under day item -->
+  
+  <!-- ...things that are due tomorrow -->
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Oct 24/25</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Normal Approximation</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create badges for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+    <div>
+    <span class="before-in-class">Before class:</span><br>
+    
+      
+        
+          
+          
+          
+            <a href="./3-generalization/06-normal-approx/notes.html" class="badge Notes-badge">Notes</a>
+          
+        
+      
+    
+    </div>
+  
+  <!-- ...docs listed under in-class key -->
+  
+    <div>
+    <span class="before-in-class">In class:</span><br>
+    
+      
+        
+          
+          
+          
+            <span class="badge unpublished">Slides</span>
+          
+        
+      
+        
+          
+          
+            
+          
+          
+            <span class="badge unpublished">Lab: Part II</span>
+          
+        
+      
+    
+    </div>
+  
+  <!-- ...docs listed directly under day item -->
+  
+  <!-- ...things that are due tomorrow -->
+  
+  </div>
+  </div>
+  
+
+</div>
+</div>
+
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
 <div id="listing-schedule-listing" class="quarto-listing quarto-listing-container-custom">

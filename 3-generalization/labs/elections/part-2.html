@@ -195,8 +195,8 @@ window.Quarto = {
 
 <section id="part-ii-computing-on-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="part-ii-computing-on-the-data">Part II: Computing on the Data</h2>
-<section id="question-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<section id="question-1" class="level4">
+<h4 class="anchored" data-anchor-id="question-1">Question 1</h4>
 <p>What is the empirical distribution of the vote counts for Ahmadinejad? Answer with:</p>
 <ul>
 <li>a plot (label your axes and provide a title),</li>
@@ -204,20 +204,20 @@ window.Quarto = {
 <li>and a written interpretation.</li>
 </ul>
 </section>
-<section id="question-2" class="level3">
-<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<section id="question-2" class="level4">
+<h4 class="anchored" data-anchor-id="question-2">Question 2</h4>
 <p>Create two vectors:</p>
 <ul>
 <li><p>one with the range of values that the Benford’s Law probability distribution can take</p></li>
 <li><p>and the second with the corresponding probabilities for each value.</p></li>
 </ul>
 </section>
-<section id="question-3" class="level3">
-<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<section id="question-3" class="level4">
+<h4 class="anchored" data-anchor-id="question-3">Question 3</h4>
 <p>What might 366 draws (the amount of rows in the <code>iran</code> dataframe) from <span class="math inline">\(X \sim Benford()\)</span> look like? Find out by sampling from the <span class="math inline">\(Benford\)</span> probability distribution. Create a plot of the resulting empirical distribution that you collect. Label your axes and title your plot <em>Benford’s Law Simulation</em>.</p>
 </section>
-<section id="question-4" class="level3">
-<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<section id="question-4" class="level4">
+<h4 class="anchored" data-anchor-id="question-4">Question 4</h4>
 <p>What do the first digit empirical distributions look like for the four candidates in the Iranian presidential election?</p>
 <ul>
 <li>Make one plot for each distribution and title them by candidate name.</li>
@@ -225,29 +225,30 @@ window.Quarto = {
 </ul>
 <p>Inside the <code>stat20data</code> package there is a function called <code>get_first()</code> that pulls off the first digit of every element in a vector. This will be helpful when creating your plots.</p>
 </section>
-<section id="question-5" class="level3">
-<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<section id="question-5" class="level4">
+<h4 class="anchored" data-anchor-id="question-5">Question 5</h4>
 <p>How do the observed first digit distributions of <strong>Question 4</strong> compare to the one you created in <strong>Question 3</strong> by sampling from Benford’s Law? Which candidate has a first-digit distribution that is:</p>
 <ul>
 <li>most similar to</li>
 <li>most different</li>
 </ul>
 <p>from the sampled one?</p>
-</section>
-<section id="question-6" class="level3">
-<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
-<p>Below are two visualizations using data from the last two presidential elections in California. The last two Democratic candidates for president were Joe Biden in 2020 and Hillary Clinton in 2016.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="part-2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Based on these results and the results from <strong>Question 5</strong>, to what extent to you believe the 2009 Iranian election was fraudulent? Explain in three to four sentences.</p>
 <!--
+### Question 6
+
+Below are two visualizations using data from the last two presidential elections in California. The last two Democratic candidates for president were Joe Biden in 2020 and Hillary Clinton in 2016.
+
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](part-2_files/figure-html/unnamed-chunk-1-1.png){fig-align='center' width=672}
+:::
+:::
+
+
+
+Based on these results and the results from **Question 5**, to what extent to you believe the 2009 Iranian election was fraudulent? Explain in three to four sentences. 
 
 ---
 
@@ -406,29 +407,45 @@ penguins %>%
 
 How do the observed first digit distributions compare to those simulated from Benford's Law? Which candidate has a first-digit distribution most similar to and most different from the simulated ones?
 
-### US Elections
-
-The [OpenElections](http://www.openelections.net) project obtains and standardizes precinct-level results from US elections, including the 2020 US Presidential Election. To access the data, search OpenElections' GitHub page ([https://github.com/openelections](https://github.com/openelections)) and click on a link to a data repository for the state of your choosing. Select the `2020` folder and find a file that ends in `.csv`. Some notes:
-
-- Each state uses a different format, so click through a couple states' repositories until you find one that will allow you to study voting patterns at the precinct-level.
-- To read the csv file into R, you will need to point R to the raw version of the data set. To view the raw csv you will either click the button that says "Raw" at the top right of the data frame on GitHub or click the link that says "View Raw Data". When you are looking at the raw csv file, the url in your browser is the one you can use to access the file from within R.
-- There may be strange extra rows in your data, such as a row tallying total overall votes. Visually inspect the data to see if anything jumps out and be sure to take this into consideration when doing your analysis.
-
-#### Question 11
-
-What state did you choose to study? What is the unit of observation in your state's data frame? What are the dimensions?
-
-#### Question 12
-
-Use this data to create a plot of that state's first digit distribution by precinct. Use the number of votes cast for Joseph Biden in each precinct.
-
-#### Question 13
-
-Does the election you chose appear to fit Benford's distribution better or worse than the Iran election?
-
 -->
+</section>
+<section id="us-elections" class="level3">
+<h3 class="anchored" data-anchor-id="us-elections">US Elections</h3>
+<p>The <a href="http://www.openelections.net">OpenElections</a> project obtains and standardizes precinct-level results from US elections, including the 2020 US Presidential Election. To access the data, visit OpenElections’ GitHub page (<a href="https://github.com/openelections">https://github.com/openelections</a>) and click on the tab labeled “Repositories”. From there, scroll down and click on a link to a data repository for the state of your choosing (the repository for Oregon, for example, is called <code>openelections-data-or</code>.). Select the <code>2020</code> folder and find a file that ends in <code>.csv</code>. Some notes:</p>
+<ul>
+<li>Each state uses a different format, so click through a couple states’ repositories until you find one that will allow you to study voting patterns at the precinct-level.</li>
+<li>To read the csv file into R, you will need to point R to the raw version of the data set. To view the raw csv you will either click the button that says “Raw” at the top right of the data frame on GitHub or click the link that says “View Raw Data”. When you are looking at the raw csv file, the url in your browser is the one you can use to access the file from within R.</li>
+<li>There may be strange extra rows in your data, such as a row tallying total overall votes. Visually inspect the data to see if anything jumps out and be sure to take this into consideration when doing your analysis.</li>
+</ul>
+<section id="question-6" class="level4">
+<h4 class="anchored" data-anchor-id="question-6">Question 6</h4>
+<p>What state did you choose to study? What is the unit of observation in your state’s data frame? What are the dimensions?</p>
+</section>
+<section id="question-7" class="level4">
+<h4 class="anchored" data-anchor-id="question-7">Question 7</h4>
+<p>Use this data to create a plot of that state’s first digit distribution by precinct. Use the number of votes cast for Joseph Biden in each precinct.</p>
+</section>
+<section id="question-8" class="level4">
+<h4 class="anchored" data-anchor-id="question-8">Question 8</h4>
+<p>Does the election you chose appear to fit Benford’s distribution better or worse than the Iran election?</p>
+</section>
+<section id="question-9" class="level4">
+<h4 class="anchored" data-anchor-id="question-9">Question 9</h4>
+<p>Take this opportunity to explore the US elections data provided by Open Elections and construct a data visualization of your choosing. This plot could deal with vote totals for different candidates or different parties, the types of offices, how candidates appear on the ballots, how one state compares to another state, how a state or precinct has changed over time … you have lots of options here!</p>
+<p>Once you have a plot, make two claims: a summary claim and a generalization. Do you think your generalization claim is well-supported here?</p>
+</section>
+<section id="last-question" class="level4">
+<h4 class="anchored" data-anchor-id="last-question">Last Question</h4>
+<p>Will you ensure that your submission to Gradescope…</p>
+<ol type="1">
+<li>is of a pdf generated from a qmd file,</li>
+<li>has all of your code visible to readers,</li>
+<li>and assigns each of the questions to all pages that show your work for that question?</li>
+</ol>
+<p>(This one is easy! Just answer “yes” or “no”)</p>
 
 
+</section>
 </section>
 </section>
 

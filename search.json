@@ -637,6 +637,20 @@
     "text": "Lab: Elections\nIn this lab we will:\n\nExamine the Benford’s Law probability distribution\n\n\n\nCompare the first digits of vote counts in the 2009 Iranian election to this distribution\n\n\n\n\nReach a conclusion on whether the election was fraudulent (or whether the Benford’s Law is a good tool at detecting fraud in the first place)."
   },
   {
+    "objectID": "3-generalization/labs/elections/part-2.html",
+    "href": "3-generalization/labs/elections/part-2.html",
+    "title": "Elections",
+    "section": "",
+    "text": "What is the empirical distribution of the vote counts for Ahmadinejad? Answer with:\n\na plot (label your axes and provide a title),\nnumerical summaries of center and spread,\nand a written interpretation.\n\n\n\n\nCreate two vectors:\n\none with the range of values that the Benford’s Law probability distribution can take\nand the second with the corresponding probabilities for each value.\n\n\n\n\nWhat might 366 draws (the amount of rows in the iran dataframe) from \\(X \\sim Benford()\\) look like? Find out by sampling from the \\(Benford\\) probability distribution. Create a plot of the resulting empirical distribution that you collect. Label your axes and title your plot Benford’s Law Simulation.\n\n\n\nWhat do the first digit empirical distributions look like for the four candidates in the Iranian presidential election?\n\nMake one plot for each distribution and title them by candidate name.\nCombine the four plots into a single visualization using the patchwork library.\n\nInside the stat20data package there is a function called get_first() that pulls off the first digit of every element in a vector. This will be helpful when creating your plots.\n\n\n\nHow do the observed first digit distributions of Question 4 compare to the one you created in Question 3 by sampling from Benford’s Law? Which candidate has a first-digit distribution that is:\n\nmost similar to\nmost different\n\nfrom the sampled one?\n\n\n\nBelow are two visualizations using data from the last two presidential elections in California. The last two Democratic candidates for president were Joe Biden in 2020 and Hillary Clinton in 2016.\n\n\n\n\n\n\n\n\n\nBased on these results and the results from Question 5, to what extent to you believe the 2009 Iranian election was fraudulent? Explain in three to four sentences."
+  },
+  {
+    "objectID": "3-generalization/labs/elections/part-2.html#part-ii-computing-on-the-data",
+    "href": "3-generalization/labs/elections/part-2.html#part-ii-computing-on-the-data",
+    "title": "Elections",
+    "section": "",
+    "text": "What is the empirical distribution of the vote counts for Ahmadinejad? Answer with:\n\na plot (label your axes and provide a title),\nnumerical summaries of center and spread,\nand a written interpretation.\n\n\n\n\nCreate two vectors:\n\none with the range of values that the Benford’s Law probability distribution can take\nand the second with the corresponding probabilities for each value.\n\n\n\n\nWhat might 366 draws (the amount of rows in the iran dataframe) from \\(X \\sim Benford()\\) look like? Find out by sampling from the \\(Benford\\) probability distribution. Create a plot of the resulting empirical distribution that you collect. Label your axes and title your plot Benford’s Law Simulation.\n\n\n\nWhat do the first digit empirical distributions look like for the four candidates in the Iranian presidential election?\n\nMake one plot for each distribution and title them by candidate name.\nCombine the four plots into a single visualization using the patchwork library.\n\nInside the stat20data package there is a function called get_first() that pulls off the first digit of every element in a vector. This will be helpful when creating your plots.\n\n\n\nHow do the observed first digit distributions of Question 4 compare to the one you created in Question 3 by sampling from Benford’s Law? Which candidate has a first-digit distribution that is:\n\nmost similar to\nmost different\n\nfrom the sampled one?\n\n\n\nBelow are two visualizations using data from the last two presidential elections in California. The last two Democratic candidates for president were Joe Biden in 2020 and Hillary Clinton in 2016.\n\n\n\n\n\n\n\n\n\nBased on these results and the results from Question 5, to what extent to you believe the 2009 Iranian election was fraudulent? Explain in three to four sentences."
+  },
+  {
     "objectID": "5-prediction/05-logistic-regression/notes.html",
     "href": "5-prediction/05-logistic-regression/notes.html",
     "title": "Logistic Regression",
@@ -1819,6 +1833,27 @@
     "text": "Write down a probability model for vote counts.\nReview\n\n\nUnit of observation\n\n\n\nlibrary(rvest)\n# Reading in the table from Wikipedia\ntab &lt;- read_html(\"https://en.wikipedia.org/wiki/List_of_tallest_buildings\") %&gt;% \n  html_node(\".wikitable\") %&gt;%\n  html_table(fill = TRUE)\n\nReferences:\nOriginal iran analysis:\nhttps://www.researchgate.net/publication/45856921_A_first-digit_anomaly_in_the_2009_Iranian_presidential_election\nhttps://arxiv.org/pdf/0906.2789.pdf\nFollow up by walter mebane:\nhttp://websites.umich.edu/~wmebane/note18jun2009.pdf\nGelman’s take:"
   },
   {
+    "objectID": "3-generalization/06-normal-approx/slides.html#section",
+    "href": "3-generalization/06-normal-approx/slides.html#section",
+    "title": "Normal Approximations",
+    "section": "",
+    "text": "−+\n01:00\n\n\n\nA die will be rolled \\(n\\) times and the object is to guess the total number of spots in \\(n\\) rolls, and you choose \\(n\\) to be either 50 or 100. There is a one-dollar penalty for each spot that the guess is off. For instance, if you guess 200, and the total is 215, then you lose 15 dollars. Which do you prefer? 50 throws, or 100?*\n\nWhich do you prefer? \\(n = 50\\) rolls, or \\(n = 100\\) rolls?\n\n * From the text Statistics by Freedman, Pisani, and Purves \n\nPrefer 50 because the square root law tells us the the spread of the distribution will be smaller for fewer rolls. If we were computing the average number of spots, then we would pick larger \\(n\\) since \\(\\sqrt{n}\\) goes in the denominator of SE."
+  },
+  {
+    "objectID": "3-generalization/06-normal-approx/slides.html#section-1",
+    "href": "3-generalization/06-normal-approx/slides.html#section-1",
+    "title": "Normal Approximations",
+    "section": "",
+    "text": "−+\n02:00\n\n\n\nOne hundred draws will be made with replacement from a box with tickets \\(\\fbox{0}\\, \\fbox{2}\\, \\fbox{3} \\,\\fbox{4}  \\,\\fbox{6}\\). Which of the following statements are true? *\n\n\nThe expected value of the sum of the one hundred draws is 300, give or take 20 or so.\nThe expected value of the sum of the one hundred is 300.\nThe sum of the one hundred draws is 300, give or take 20 or so.\nThe sum of the one hundred draws is 300.\n\n\n * From the text Statistics by Freedman, Pisani, and Purves \n\nThe EV is a constant, and note that the box average is (0+2+3+4+6)/5 = 3, so the EV of a single draw is 3, and the EV of the sum of 100 draws is \\(100\\times 4 = 300\\). The give or take number given here is the box SD \\(\\times 10 = 2\\times 10 = 20\\). You can let \\(X\\) be a random variable that is the value of one ticket drawn at random from this box, and then we want \\(S_{100}\\). This can be boardwork."
+  },
+  {
+    "objectID": "3-generalization/06-normal-approx/slides.html#section-2",
+    "href": "3-generalization/06-normal-approx/slides.html#section-2",
+    "title": "Normal Approximations",
+    "section": "",
+    "text": "−+\n01:00\n\n\n\nWe have two random variables: \\(X \\sim\\) Binomial(\\(10, 0.2\\)) and \\(Y\\) is the random variable that is the value of one ticket drawn at random from a box with tickets \\(\\fbox{0}\\, \\fbox{2}\\, \\fbox{3} \\,\\fbox{4}  \\,\\fbox{6}\\).\nWe take the sum of 100 iid random variables for each of \\(X\\) and \\(Y\\), called \\(SX_{100}\\) and \\(SY_{100}\\). The empirical distributions of \\(SX_{100}\\) and \\(SY_{100}\\) are plotted below.\n\n\nWhich distribution belongs to which random variable?\n\n\nThey need to remember that the expected value of S_x will be 200, and for S_y 300."
+  },
+  {
     "objectID": "3-generalization/06-normal-approx/notes.html",
     "href": "3-generalization/06-normal-approx/notes.html",
     "title": "Continuous Distributions and Normal Approximations",
@@ -2440,14 +2475,14 @@
     "href": "assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assignments.html#labs",
     "href": "assignments.html#labs",
     "title": "Assignments",
     "section": "",
-    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assignments.html#worksheets",

@@ -854,7 +854,7 @@
     "href": "3-generalization/labs/peoples-park/slides.html#part-i-understanding-the-context-of-the-data",
     "title": "Lab: People’s Park",
     "section": "Part I: Understanding the Context of the Data",
-    "text": "Part I: Understanding the Context of the Data\n\n\n\n−+\n25:00"
+    "text": "Part I: Understanding the Context of the Data\n\n\n\nReference Materials\n\nChancellor’s Email\nBackground Methods PDF\nQuestionnaire\n\n\n  \n    −\n    +\n \n 25:00"
   },
   {
     "objectID": "3-generalization/08-confidence-intervals/notes.html",
@@ -2670,14 +2670,14 @@
     "href": "assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 5: People's Park\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 5: People's Park\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assignments.html#labs",
     "href": "assignments.html#labs",
     "title": "Assignments",
     "section": "",
-    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n  \n    \n      Part II\n    \n  \n\n\n\n\n\n\n\n\n\nLab 5: People's Park\n\n  \n    \n      Slides\n    \n  \n\n  \n    \n      Part I\n    \n  \n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Lab assignments are an opportunity to put the concepts from the notes into practice to answer questions about a real data set. Your lab report should be a pdf file generated from a fully reproducible qmd file. For a helpful R reference, see base R, data visualization (ggplot2), and data wrangling (dplyr).\n\n\n\n\n\n\n\n\nLab 1: UN Votes\n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 2: Class Survey\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 3: Flights\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 4: Elections\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n  \n    Part II\n  \n\n\n\n\n\n\n\n\n\nLab 5: People's Park\n\n  \n    Slides\n  \n\n  \n    Part I\n  \n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assignments.html#worksheets",

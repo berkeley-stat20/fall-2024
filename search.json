@@ -642,7 +642,7 @@
     "href": "3-generalization/09-bootstrapping/slides.html#parameters-and-statistics",
     "title": "Bootstrapping",
     "section": "Parameters and Statistics",
-    "text": "Parameters and Statistics\n\n\nOur Goal: Assess the sampling error / variability in our estimate of the median year at Cal and the proportion of students in an econ-related field.\n\n\n\nOur Tool: The Bootstrap"
+    "text": "Parameters and Statistics\n\n\nOur Goal: Assess the sampling variability in our estimate of the median year at Cal and the proportion of students in an econ-related field.\n\n\n\nOur Tool: The Bootstrap"
   },
   {
     "objectID": "3-generalization/09-bootstrapping/slides.html#collecting-a-sample-of-data",

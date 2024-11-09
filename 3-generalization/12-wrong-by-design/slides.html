@@ -7,7 +7,9 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6f7931aacaeb22aa467d6667c6f1725d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6f7931aacaeb22aa467d6667c6f1725d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.25">
 
   <meta name="author" content="STAT 20: Introduction to Probability and Statistics">
@@ -419,13 +421,6 @@ STAT 20: Introduction to Probability and Statistics
 </div>
 
 </section>
-<section id="agenda" class="slide level2">
-<h2>Agenda</h2>
-<ul>
-<li>Concept Questions</li>
-<li>Problem Set 15</li>
-</ul>
-</section>
 <section>
 <section id="concept-questions" class="title-slide slide level1 center">
 <h1>Concept Questions</h1>
@@ -454,7 +449,7 @@ If $H_A$ represents a specific version of the alternate hypothesis that is true,
 
 
 ```{=html}
-<div class="countdown" id="timer_ea2656d5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_1a708e27" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -482,7 +477,7 @@ What is the p-value of this test?
 
 
 ```{=html}
-<div class="countdown" id="timer_520520ea" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_d174d317" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -504,14 +499,13 @@ What is the p-value of this test?
 </p>
 <p>What are the null and alternative hypotheses?</p>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_d93b91cb" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<div id="timer_d10e6d19fc085207b24177b519971be868698b45" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 <aside class="notes">
 <p>The null is the p = .5 and the alternative is that p != .5.</p>
 <p>This brings up a good discussion of one- and two-tailed tests. When students share their answers, you can draw a picture of a null distribution on the board with the observed statistic as a vertical line and consider how the p-value calculation would change depending on the alternative hypothesis.</p>
@@ -610,16 +604,16 @@ Null Hypothesis: point
 # A tibble: 500 × 2
    replicate  stat
    &lt;fct&gt;     &lt;dbl&gt;
- 1 1         0.507
- 2 2         0.507
- 3 3         0.476
- 4 4         0.492
- 5 5         0.484
- 6 6         0.514
- 7 7         0.505
- 8 8         0.495
- 9 9         0.508
-10 10        0.485
+ 1 1         0.522
+ 2 2         0.512
+ 3 3         0.507
+ 4 4         0.487
+ 5 5         0.508
+ 6 6         0.486
+ 7 7         0.510
+ 8 8         0.477
+ 9 9         0.502
+10 10        0.492
 # ℹ 490 more rows</code></pre>
 </div>
 </div>
@@ -637,7 +631,7 @@ Null Hypothesis: point
 <span id="cb8-8" class="hljs-ln-code"><a></a>  <span class="fu">shade_p_value</span>(obs_stat, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <div class="poll">
@@ -656,14 +650,13 @@ Null Hypothesis: point
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_c16b2077" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<div id="timer_d10e6d19fc085207b24177b519971be868698b45" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
@@ -684,17 +677,6 @@ Null Hypothesis: point
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section id="problem-set-15" class="title-slide slide level1 center">
-<h1>Problem Set 15</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_e494e875" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 <!-- ##  -->
 <!-- Imagine a scenario when your sample consists of the entire population. After setting up the hypotheses for your test, you ponder the chance that you'll make a statistical error. -->
 <!-- :::poll -->
@@ -768,7 +750,7 @@ Construct the appropriate null distribution.
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![](slides_files/figure-revealjs/unnamed-chunk-13-1.png){fig-align='center' width=960}
+![](slides_files/figure-revealjs/unnamed-chunk-10-1.png){fig-align='center' width=960}
 :::
 :::
 
@@ -950,7 +932,7 @@ B. Failing to move to remote instruction when in fact the true number of cases o
 
 
 ```{=html}
-<div class="countdown" id="timer_fd97e27d" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_1946ee9a" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1011,7 +993,7 @@ This is an example of how low-power studies resulted in a failure to detect that
 -->
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../../site_libs/quarto-contrib/quarto-project/stat20/stat20slides/stat20-hex-vsmall.png" class="slide-logo"></p>

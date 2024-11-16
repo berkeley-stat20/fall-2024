@@ -419,12 +419,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-unit-iii-causality" id="toc-welcome-to-unit-iii-causality" class="nav-link active" data-scroll-target="#welcome-to-unit-iii-causality">Welcome to Unit III: Causality</a></li>
-  <li><a href="#causality-defined" id="toc-causality-defined" class="nav-link" data-scroll-target="#causality-defined">Causality Defined</a>
-  <ul class="collapse">
-  <li><a href="#the-conditional-counterfactual" id="toc-the-conditional-counterfactual" class="nav-link" data-scroll-target="#the-conditional-counterfactual">The Conditional Counterfactual</a></li>
+  <li><a href="#the-conditional-counterfactual" id="toc-the-conditional-counterfactual" class="nav-link active" data-scroll-target="#the-conditional-counterfactual">The Conditional Counterfactual</a></li>
   <li><a href="#the-challenge-of-causation" id="toc-the-challenge-of-causation" class="nav-link" data-scroll-target="#the-challenge-of-causation">The Challenge of Causation</a></li>
-  </ul></li>
   <li><a href="#from-individual-level-claims-to-group-level-claims" id="toc-from-individual-level-claims-to-group-level-claims" class="nav-link" data-scroll-target="#from-individual-level-claims-to-group-level-claims">From individual-level claims to group-level claims</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
@@ -453,71 +449,11 @@ window.Quarto = {
 </header>
 
 
-<section id="welcome-to-unit-iii-causality" class="level2" style="text-align: center">
-<h2 class="anchored" data-anchor-id="welcome-to-unit-iii-causality">Welcome to Unit III: Causality</h2>
-</section>
-<p>At the beginning of this course, we considered four different claims associated with the following news article<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<ol type="1">
-<li>The Consumer Price Index rose 8.3% in April.</li>
-<li>The global consumer price index rose in April.</li>
-<li>The Consumer Price Index rose 8.3% because of the war in Ukraine.</li>
-<li>The Consumer Price Index will likely rise throughout the summer.</li>
-</ol>
-<div id="fig-inflation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="600px">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-inflation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/nyt-inflation.png" id="fig-inflation" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" width="600">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-inflation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-<p>Each one of these four claims illustrates a different type of claim made using data. As a brief recap of where we are in this course, let’s take them each in turn.</p>
-<blockquote class="blockquote">
-<ol type="1">
-<li>The Consumer Price Index rose 8.3% in April.</li>
-</ol>
-</blockquote>
-<p>This is a claim concerning the nature of the data that is on hand, a <em>descriptive</em> claim. While these seem like the most straightforward type of claim, don’t underestimate their utility or the challenges involved in crafting them. Deciding which measure is most appropriate is tricky work and the process of wrangling the data takes careful thought and time.</p>
-<!-- While there are a host of complex machine learning models that we could use to make our predictions, we could also consider a simple linear model using the method of least squares. The best predictive model will have enough complexity to capture the structure in the data but not so much flexibility that it overfits. One of the most powerful tools for choosing between different predictive models is to compare their test set error using crossvalidation. -->
-<blockquote class="blockquote">
-<ol start="2" type="1">
-<li>The global consumer price index rose in April.</li>
-</ol>
-</blockquote>
-<p>This claim looks deceptively like the first but there is one important difference. The first claim concerns the CPI, which is calculated using data from the US. This second claim is about the broader global population of which the US data is a subset. In other words, this is a <em>generalization</em> from a sample to a population.</p>
-<p>For a generalization to be sound, we must take several considerations into account. First off: is the sample representative of the population or is it biased in some way? Secondly: what sources of variability are present? When working with a sample that originated from a chance method, it’s important to consider the degree to which sampling variability might be able to explain the structure you see in the data. Our primary tools in this area are the confidence interval, to assess the uncertainty in a statistic, and the hypothesis test, to assess whether a particular statistic is consistent with an assertion about the state of the population parameters.</p>
-<blockquote class="blockquote">
-<ol start="3" type="1">
-<li>The Consumer Price Index will likely rise throughout the summer.</li>
-</ol>
-</blockquote>
-<p>This is a <em>prediction</em>, a claim that uses the structure of the data at hand to predict the value of observations about which we have only partial information. In midsummer, we know the date will be July 15th, that’s the x-coordinate. But what will the y-coordinate be, the Consumer Price Index? Now we recognize this as a regression problem.</p>
-<blockquote class="blockquote">
-<ol start="4" type="1">
-<li>The Consumer Price Index rose 8.3% because of the war in Ukraine.</li>
-</ol>
-</blockquote>
-<p>This bring us to the final claim, which is one concerning <em>causation</em>. The claim asserts that the structure in the data (the rise in the CPI) can be attributed to specific cause (the war in Ukraine). Causal claims are often the most challenging claims to craft but they are also some of the most useful. Uncovering causes and effects is at the heart of many sciences from Economics to Biomedicine. They also help guide decision making for individuals (is it worth my time to study for the final?) as well as for organizations (will Twitter’s new option to pay for verification result in a net increase in revenue for the company?).</p>
-<p>For the remainder of Stat 20, we lay the foundation for causation, first by defining it precisely, then identifying a few of the most powerful strategies for inferring it from data.</p>
-<div id="fig-claims" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-claims-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/claims-only.png" class="img-fluid figure-img" width="500">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-claims-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Four types of claims made with data covered in this class.
-</figcaption>
-</figure>
-</div>
-<section id="causality-defined" class="level2">
-<h2 class="anchored" data-anchor-id="causality-defined">Causality Defined</h2>
 <!-- Alternate intro: do you think smoking causes cancer? Why? Don't we need an experiment to infer causation? -->
-<p>What exactly does it mean to say that “A causes B”?</p>
+<p><span class="dropbcap">W</span>hat exactly does it mean to say that “A causes B”?</p>
 <p>We speak of causes and effects all the time, even though the language we use varies widely. “I took an aspirin and my headache got better” implies that taking the aspirin is what caused your headache to get better. “She was able to find a good job because she graduated from Berkeley” is more direct: graduating from Berkeley was the cause of her being able to find a good job.</p>
 <p>Identifying a causal statement is one thing, but we’re still left the conundrum: what definition can we use to be precise about the meaning of a causal statement?</p>
-<p>Let’s see what your intuition tells you about what is a cause and what is not a cause. Which causes do you identify in the following scenario<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>?</p>
+<p>Let’s see what your intuition tells you about what is a cause and what is not a cause. Which causes do you identify in the following scenario<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>?</p>
 <blockquote class="blockquote">
 <p>Suppose that a prisoner is about to be executed by a firing squad. A certain chain of events must occur for this to happen. First, the judge orders the execution. The order goes to a captain, who signals the two soldiers of the firing squad (soldier 1 and soldier 2) to fire. They are obedient and expert marksmen, so they only fire on command, and if either one of them shoots, the prisoner dies.</p>
 <p>Who caused the death of the prisoner?</p>
@@ -579,7 +515,7 @@ Check your answer
 <p>Counterfactuals have a particularly problematic relationship wth data because data are, by definition, facts. - Judea Pearl</p>
 </blockquote>
 <p>The conditional counterfactual definition of causation is sound in an abstract sense, but it is challenging when you start to think through what sort of data you could collect as evidence of causation. In the second example, we have data on the fact that she found a good job and that she graduated from Berkeley, but the counterfactual - that remains purely hypothetical. In fact, the word counterfactual means counter-to-fact, and “fact” is the meaning of the Latin word “datum” (a single piece of data). That is to say, for airtight evidence of a cause-and-effect, you must observe some data and then something that is somehow also the contrary to what you observed.</p>
-<p>In an idealized world, to demonstrate that graduating from Cal was the cause of getting a good job, you would observe this data frame<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>In an idealized world, to demonstrate that graduating from Cal was the cause of getting a good job, you would observe this data frame<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-hover table-striped caption-top table-sm small" data-quarto-postprocess="true">
@@ -618,7 +554,6 @@ Check your answer
 <p>Each one of the three paths is a potential route I could take and each of those times are the app’s predictions for what the potential outcomes will be. Importantly, though, these are just predictions, not data. To collect data, I have to select one of these routes to drive, then I could record data on the time it took me. If I choose the blue path and it ends up taking me 16 minutes, I’ll never know for sure that it was my choice of the blue route that led to this apparently short drive time. To know that, I’d have to rewind the clock and, in a different world, decide to take one of the gray routes and observe a drive time that is more than 16 minutes.</p>
 <p>While our definition of causation prevents us from ever making completely airtight conclusions about cause and effect in scenarios like these, over the years scientists and statisticians have crafted many clever strategies for working around these constraints to build compelling causal claims.</p>
 </section>
-</section>
 <section id="from-individual-level-claims-to-group-level-claims" class="level2">
 <h2 class="anchored" data-anchor-id="from-individual-level-claims-to-group-level-claims">From individual-level claims to group-level claims</h2>
 <p>Our inability to observe both counterfactuals makes it hard to make reliable claims about causal effects for an individual. However, it can sometimes be easier to make a claim about the typical causal effect among a group of individuals. The distinction between individual and group level causation is demonstrated in following two statements.</p>
@@ -645,23 +580,23 @@ A population parameter that captures the effect of being administered a particul
 </div>
 <div class="cell quarto-layout-cell" style="flex-basis: 45.5%;justify-content: center;">
 <div class="cell-output-display">
-<div id="aszfhhmwxl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#aszfhhmwxl table {
+<div id="cyphigftps" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cyphigftps table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#aszfhhmwxl thead, #aszfhhmwxl tbody, #aszfhhmwxl tfoot, #aszfhhmwxl tr, #aszfhhmwxl td, #aszfhhmwxl th {
+#cyphigftps thead, #cyphigftps tbody, #cyphigftps tfoot, #cyphigftps tr, #cyphigftps td, #cyphigftps th {
   border-style: none;
 }
 
-#aszfhhmwxl p {
+#cyphigftps p {
   margin: 0;
   padding: 0;
 }
 
-#aszfhhmwxl .gt_table {
+#cyphigftps .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -687,12 +622,12 @@ A population parameter that captures the effect of being administered a particul
   border-left-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_caption {
+#cyphigftps .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#aszfhhmwxl .gt_title {
+#cyphigftps .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -704,7 +639,7 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-width: 0;
 }
 
-#aszfhhmwxl .gt_subtitle {
+#cyphigftps .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -716,7 +651,7 @@ A population parameter that captures the effect of being administered a particul
   border-top-width: 0;
 }
 
-#aszfhhmwxl .gt_heading {
+#cyphigftps .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -728,13 +663,13 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_bottom_border {
+#cyphigftps .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_col_headings {
+#cyphigftps .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -749,7 +684,7 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_col_heading {
+#cyphigftps .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -769,7 +704,7 @@ A population parameter that captures the effect of being administered a particul
   overflow-x: hidden;
 }
 
-#aszfhhmwxl .gt_column_spanner_outer {
+#cyphigftps .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -781,15 +716,15 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 4px;
 }
 
-#aszfhhmwxl .gt_column_spanner_outer:first-child {
+#cyphigftps .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aszfhhmwxl .gt_column_spanner_outer:last-child {
+#cyphigftps .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aszfhhmwxl .gt_column_spanner {
+#cyphigftps .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -801,11 +736,11 @@ A population parameter that captures the effect of being administered a particul
   width: 100%;
 }
 
-#aszfhhmwxl .gt_spanner_row {
+#cyphigftps .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#aszfhhmwxl .gt_group_heading {
+#cyphigftps .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -831,7 +766,7 @@ A population parameter that captures the effect of being administered a particul
   text-align: left;
 }
 
-#aszfhhmwxl .gt_empty_group_heading {
+#cyphigftps .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -846,15 +781,15 @@ A population parameter that captures the effect of being administered a particul
   vertical-align: middle;
 }
 
-#aszfhhmwxl .gt_from_md > :first-child {
+#cyphigftps .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aszfhhmwxl .gt_from_md > :last-child {
+#cyphigftps .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aszfhhmwxl .gt_row {
+#cyphigftps .gt_row {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
@@ -873,7 +808,7 @@ A population parameter that captures the effect of being administered a particul
   overflow-x: hidden;
 }
 
-#aszfhhmwxl .gt_stub {
+#cyphigftps .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -886,7 +821,7 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#aszfhhmwxl .gt_stub_row_group {
+#cyphigftps .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -900,15 +835,15 @@ A population parameter that captures the effect of being administered a particul
   vertical-align: top;
 }
 
-#aszfhhmwxl .gt_row_group_first td {
+#cyphigftps .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#aszfhhmwxl .gt_row_group_first th {
+#cyphigftps .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#aszfhhmwxl .gt_summary_row {
+#cyphigftps .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -918,16 +853,16 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#aszfhhmwxl .gt_first_summary_row {
+#cyphigftps .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_first_summary_row.thick {
+#cyphigftps .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#aszfhhmwxl .gt_last_summary_row {
+#cyphigftps .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -937,7 +872,7 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_grand_summary_row {
+#cyphigftps .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -947,7 +882,7 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#aszfhhmwxl .gt_first_grand_summary_row {
+#cyphigftps .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -957,7 +892,7 @@ A population parameter that captures the effect of being administered a particul
   border-top-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_last_grand_summary_row_top {
+#cyphigftps .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -967,11 +902,11 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_striped {
+#cyphigftps .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aszfhhmwxl .gt_table_body {
+#cyphigftps .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -980,7 +915,7 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_footnotes {
+#cyphigftps .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -994,7 +929,7 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_footnote {
+#cyphigftps .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1003,7 +938,7 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#aszfhhmwxl .gt_sourcenotes {
+#cyphigftps .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1017,7 +952,7 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#aszfhhmwxl .gt_sourcenote {
+#cyphigftps .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1025,63 +960,63 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#aszfhhmwxl .gt_left {
+#cyphigftps .gt_left {
   text-align: left;
 }
 
-#aszfhhmwxl .gt_center {
+#cyphigftps .gt_center {
   text-align: center;
 }
 
-#aszfhhmwxl .gt_right {
+#cyphigftps .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aszfhhmwxl .gt_font_normal {
+#cyphigftps .gt_font_normal {
   font-weight: normal;
 }
 
-#aszfhhmwxl .gt_font_bold {
+#cyphigftps .gt_font_bold {
   font-weight: bold;
 }
 
-#aszfhhmwxl .gt_font_italic {
+#cyphigftps .gt_font_italic {
   font-style: italic;
 }
 
-#aszfhhmwxl .gt_super {
+#cyphigftps .gt_super {
   font-size: 65%;
 }
 
-#aszfhhmwxl .gt_footnote_marks {
+#cyphigftps .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#aszfhhmwxl .gt_asterisk {
+#cyphigftps .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#aszfhhmwxl .gt_indent_1 {
+#cyphigftps .gt_indent_1 {
   text-indent: 5px;
 }
 
-#aszfhhmwxl .gt_indent_2 {
+#cyphigftps .gt_indent_2 {
   text-indent: 10px;
 }
 
-#aszfhhmwxl .gt_indent_3 {
+#cyphigftps .gt_indent_3 {
   text-indent: 15px;
 }
 
-#aszfhhmwxl .gt_indent_4 {
+#cyphigftps .gt_indent_4 {
   text-indent: 20px;
 }
 
-#aszfhhmwxl .gt_indent_5 {
+#cyphigftps .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1136,23 +1071,23 @@ A population parameter that captures the effect of being administered a particul
 </div>
 <div class="cell quarto-layout-cell" style="flex-basis: 27.3%;justify-content: center;">
 <div class="cell-output-display">
-<div id="mgtgmxxyqx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mgtgmxxyqx table {
+<div id="avzyjgqfau" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#avzyjgqfau table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mgtgmxxyqx thead, #mgtgmxxyqx tbody, #mgtgmxxyqx tfoot, #mgtgmxxyqx tr, #mgtgmxxyqx td, #mgtgmxxyqx th {
+#avzyjgqfau thead, #avzyjgqfau tbody, #avzyjgqfau tfoot, #avzyjgqfau tr, #avzyjgqfau td, #avzyjgqfau th {
   border-style: none;
 }
 
-#mgtgmxxyqx p {
+#avzyjgqfau p {
   margin: 0;
   padding: 0;
 }
 
-#mgtgmxxyqx .gt_table {
+#avzyjgqfau .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1178,12 +1113,12 @@ A population parameter that captures the effect of being administered a particul
   border-left-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_caption {
+#avzyjgqfau .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mgtgmxxyqx .gt_title {
+#avzyjgqfau .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1195,7 +1130,7 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-width: 0;
 }
 
-#mgtgmxxyqx .gt_subtitle {
+#avzyjgqfau .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1207,7 +1142,7 @@ A population parameter that captures the effect of being administered a particul
   border-top-width: 0;
 }
 
-#mgtgmxxyqx .gt_heading {
+#avzyjgqfau .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1219,13 +1154,13 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_bottom_border {
+#avzyjgqfau .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_col_headings {
+#avzyjgqfau .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1240,7 +1175,7 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_col_heading {
+#avzyjgqfau .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1260,7 +1195,7 @@ A population parameter that captures the effect of being administered a particul
   overflow-x: hidden;
 }
 
-#mgtgmxxyqx .gt_column_spanner_outer {
+#avzyjgqfau .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1272,15 +1207,15 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 4px;
 }
 
-#mgtgmxxyqx .gt_column_spanner_outer:first-child {
+#avzyjgqfau .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mgtgmxxyqx .gt_column_spanner_outer:last-child {
+#avzyjgqfau .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mgtgmxxyqx .gt_column_spanner {
+#avzyjgqfau .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1292,11 +1227,11 @@ A population parameter that captures the effect of being administered a particul
   width: 100%;
 }
 
-#mgtgmxxyqx .gt_spanner_row {
+#avzyjgqfau .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mgtgmxxyqx .gt_group_heading {
+#avzyjgqfau .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1322,7 +1257,7 @@ A population parameter that captures the effect of being administered a particul
   text-align: left;
 }
 
-#mgtgmxxyqx .gt_empty_group_heading {
+#avzyjgqfau .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1337,15 +1272,15 @@ A population parameter that captures the effect of being administered a particul
   vertical-align: middle;
 }
 
-#mgtgmxxyqx .gt_from_md > :first-child {
+#avzyjgqfau .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mgtgmxxyqx .gt_from_md > :last-child {
+#avzyjgqfau .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mgtgmxxyqx .gt_row {
+#avzyjgqfau .gt_row {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
@@ -1364,7 +1299,7 @@ A population parameter that captures the effect of being administered a particul
   overflow-x: hidden;
 }
 
-#mgtgmxxyqx .gt_stub {
+#avzyjgqfau .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1377,7 +1312,7 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#mgtgmxxyqx .gt_stub_row_group {
+#avzyjgqfau .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1391,15 +1326,15 @@ A population parameter that captures the effect of being administered a particul
   vertical-align: top;
 }
 
-#mgtgmxxyqx .gt_row_group_first td {
+#avzyjgqfau .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mgtgmxxyqx .gt_row_group_first th {
+#avzyjgqfau .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mgtgmxxyqx .gt_summary_row {
+#avzyjgqfau .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1409,16 +1344,16 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#mgtgmxxyqx .gt_first_summary_row {
+#avzyjgqfau .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_first_summary_row.thick {
+#avzyjgqfau .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mgtgmxxyqx .gt_last_summary_row {
+#avzyjgqfau .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1428,7 +1363,7 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_grand_summary_row {
+#avzyjgqfau .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1438,7 +1373,7 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#mgtgmxxyqx .gt_first_grand_summary_row {
+#avzyjgqfau .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1448,7 +1383,7 @@ A population parameter that captures the effect of being administered a particul
   border-top-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_last_grand_summary_row_top {
+#avzyjgqfau .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1458,11 +1393,11 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_striped {
+#avzyjgqfau .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mgtgmxxyqx .gt_table_body {
+#avzyjgqfau .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1471,7 +1406,7 @@ A population parameter that captures the effect of being administered a particul
   border-bottom-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_footnotes {
+#avzyjgqfau .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1485,7 +1420,7 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_footnote {
+#avzyjgqfau .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1494,7 +1429,7 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#mgtgmxxyqx .gt_sourcenotes {
+#avzyjgqfau .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1508,7 +1443,7 @@ A population parameter that captures the effect of being administered a particul
   border-right-color: #D3D3D3;
 }
 
-#mgtgmxxyqx .gt_sourcenote {
+#avzyjgqfau .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1516,63 +1451,63 @@ A population parameter that captures the effect of being administered a particul
   padding-right: 5px;
 }
 
-#mgtgmxxyqx .gt_left {
+#avzyjgqfau .gt_left {
   text-align: left;
 }
 
-#mgtgmxxyqx .gt_center {
+#avzyjgqfau .gt_center {
   text-align: center;
 }
 
-#mgtgmxxyqx .gt_right {
+#avzyjgqfau .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mgtgmxxyqx .gt_font_normal {
+#avzyjgqfau .gt_font_normal {
   font-weight: normal;
 }
 
-#mgtgmxxyqx .gt_font_bold {
+#avzyjgqfau .gt_font_bold {
   font-weight: bold;
 }
 
-#mgtgmxxyqx .gt_font_italic {
+#avzyjgqfau .gt_font_italic {
   font-style: italic;
 }
 
-#mgtgmxxyqx .gt_super {
+#avzyjgqfau .gt_super {
   font-size: 65%;
 }
 
-#mgtgmxxyqx .gt_footnote_marks {
+#avzyjgqfau .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mgtgmxxyqx .gt_asterisk {
+#avzyjgqfau .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mgtgmxxyqx .gt_indent_1 {
+#avzyjgqfau .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mgtgmxxyqx .gt_indent_2 {
+#avzyjgqfau .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mgtgmxxyqx .gt_indent_3 {
+#avzyjgqfau .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mgtgmxxyqx .gt_indent_4 {
+#avzyjgqfau .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mgtgmxxyqx .gt_indent_5 {
+#avzyjgqfau .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1619,7 +1554,7 @@ approximate the counterfactual. Chief among these is the randomized control tria
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/frost.png" class="img-fluid figure-img" width="300"></p>
-<figcaption>Illustration by Mayaan Hayal<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></figcaption>
+<figcaption>Illustration by Mayaan Hayal<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></figcaption>
 </figure>
 </div>
 
@@ -1630,10 +1565,9 @@ approximate the counterfactual. Chief among these is the randomized control tria
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Smialek, Jeanna (2022, May 11). Consumer Prices are Still Climbing Rapidly. <em>The New York Times</em>. <a href="https://www.nytimes.com/2022/05/11/business/economy/april-2022-cpi.html" class="uri">https://www.nytimes.com/2022/05/11/business/economy/april-2022-cpi.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>This example appears in <em>The Book of Why</em> (2018) by Pearl and Mackenzie, as do subsequent historical quotations from Thucydides and Hume.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>An a historical aside, <a href="https://en.wikipedia.org/wiki/Evelyn_Fix">Evelyn Fix</a> is the name of a past professor of statistics at UC Berkeley and the co-inventor of the k-nearest neighbors algorithm.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>A drawing from “The Book of Why” depicting the notion of potential outcomes described in Robert Frost’s poem <a href="https://www.poetryfoundation.org/poems/44272/the-road-not-taken">The Road Not Taken</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This example appears in <em>The Book of Why</em> (2018) by Pearl and Mackenzie, as do subsequent historical quotations from Thucydides and Hume.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>An a historical aside, <a href="https://en.wikipedia.org/wiki/Evelyn_Fix">Evelyn Fix</a> is the name of a past professor of statistics at UC Berkeley and the co-inventor of the k-nearest neighbors algorithm.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>A drawing from “The Book of Why” depicting the notion of potential outcomes described in Robert Frost’s poem <a href="https://www.poetryfoundation.org/poems/44272/the-road-not-taken">The Road Not Taken</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -7,7 +7,9 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6f7931aacaeb22aa467d6667c6f1725d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6f7931aacaeb22aa467d6667c6f1725d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.25">
 
   <meta name="author" content="STAT 20: Introduction to Probability and Statistics">
@@ -371,7 +373,7 @@ D. Soldier 2</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_cf385a8d" data-update-every="1" tabindex="0" style="right:0;bottom:-1;">
+<div class="countdown" id="timer_053bba07" data-update-every="1" tabindex="0" style="right:0;bottom:-1;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -433,16 +435,9 @@ D. Soldier 2</p>
 <div class="poll">
 <p>Pick the correct way to fill in the following sentence: “Taking BART instead of driving will cause ___ to arrive more than ___ minutes later.”</p>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_df06d87b" data-update-every="1" tabindex="0" style="right:0;bottom:-1;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 <aside class="notes">
-<p>This is the first question in a sequence and is kind of a warmup. It should be quite easy and probably only needs 30 seconds to answer.</p>
+<p>This is the first of two questions that deal with a hypothetical world: what if we could see <em>both</em> potential outcomes of each unit? This question is distinctive in that it has us thinking about unit-level causation, so the options all refer to one of the four people and then their causal effect - just the difference in travel times.</p>
+<p>This one should be quick - only 30 seconds or so.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -454,6 +449,13 @@ D. Soldier 2</p>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<div id="timer_219cdf9312b6da4abe3156a378d5e3830845e276" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </div>
 </section>
 <section id="section-2" class="slide level2">
@@ -494,14 +496,28 @@ D. Soldier 2</p>
 <div class="poll">
 <p>What is the average treatment effect of taking BART on travel time for these four subjects?</p>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_0d1d0601" data-update-every="1" tabindex="0" style="right:0;bottom:-1;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<aside class="notes">
+<p>Note that we’re still in a hypothetical world where we’re able to see both potential outcomes.</p>
+<p>This question shifts the focus from individual causal effects to group causal effects - the average treatment effect. The answer here the difference in average travel times of each travel type:</p>
+<p>mean(bart times) - mean(car times) = 38.75 - 33.75 = +5</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div id="timer_219cdf9312b6da4abe3156a378d5e3830845e276" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </div>
 </section>
 <section id="section-3" class="slide level2">
@@ -542,14 +558,28 @@ D. Soldier 2</p>
 <div class="poll">
 <p>What is a natural estimate of the average effect of taking BART (rather than driving) if we only observed this data?</p>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_b2401ab3" data-update-every="1" tabindex="0" style="right:0;bottom:-1;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<aside class="notes">
+<p>We’ve now left the hypothetical world and entered the real world scenario where on every unit we only get to observe one of the potential outcomes.</p>
+<p>The answer is still a difference in average travel times, but the particular times that are now observed cause the average treatment effect to <em>flip</em> it’s sign from +5 to -5.</p>
+<p>mean(bart times) - mean(car times) = 30 - 35 = -5</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div id="timer_219cdf9312b6da4abe3156a378d5e3830845e276" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </div>
 </section>
 <section id="section-4" class="slide level2">
@@ -590,17 +620,20 @@ D. Soldier 2</p>
 <div class="poll">
 <p>What are two different reasons why this estimate of the average treatment effect might not be very reliable?</p>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_3d7dcc63" data-update-every="1" tabindex="0" style="right:0;bottom:-1;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<div id="timer_219cdf9312b6da4abe3156a378d5e3830845e276" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 <aside class="notes">
-<p>This last question is designed to be a “pair and share” exercise and does not have an associated PollEV item. After they discuss you can ask a couple of them to share.</p>
-<p>This is a good chance to talk about why it’s hard to measure causal effects. In the example the people who choose to ride BART are those for whom getting to San Francisco is easiest anyway. Asking “How would you try to collect data about this causal claim differently to get a better. measure of the causal effect?” provides a nice lead-in to the lab.</p>
+<p>This last question is designed to be a “pair and share” exercise and does not have an associated PollEV item. After they discuss you can ask a couple of them to share. Common answers include:</p>
+<ul>
+<li>Maria and Fan live closer to Bart stations than Alice and Muhammad</li>
+<li>Alice and Muhammad migth travel to SF during rush hour, lengthening car travel times, while Maria and Fan do not.</li>
+</ul>
+<p>This is a good chance to talk about why it’s hard to measure causal effects. Asking “How would you try to collect data about this causal claim differently to get a better measure of the causal effect?” provides a nice lead-in to the lab.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
